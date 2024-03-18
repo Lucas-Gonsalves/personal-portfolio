@@ -15,6 +15,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    background: ${props => props.theme.colors["black-100"]};
     -webkit-font-smoothing: antialiased;
+  }
+  
+  body, input, text-area, button {
+    font-family: ${props => props.theme["font-family"].default};
   }
 `;
