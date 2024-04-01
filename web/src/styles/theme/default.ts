@@ -2,7 +2,7 @@ export const defaultTheme = {
   
 
   colors: {
-    "white-100": "##fefefe",
+    "white-100": "#fefefe",
     "white-200": "#dddddd",
     
     "black-100": "#010101",
@@ -22,12 +22,13 @@ export const defaultTheme = {
 
     "cyan-800": "#102039",
   },
-
+  
 
   "font-size": {
     xs: "1.5rem",
     xsm: "1.6rem",
     xm: "1.8rem",
+    xmd: "2rem",
     exm: "2.2rem",
     xg: "2.4rem",
     xxg: "3.0rem",
@@ -60,7 +61,8 @@ export const defaultTheme = {
     xs: "375px",
     xsm: "475px",
     xm: "768px",
-    exm: "1024px",
-    xg: "1440px",
+    exm: "900px",
+    xg: "1024px",
+    xxg: "1440px",
   },
 };

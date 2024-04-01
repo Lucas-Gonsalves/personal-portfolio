@@ -1,11 +1,15 @@
-import { HomeContainer } from "./styles"
+import { HomeContainer } from "./styles";
+import { Presentation } from "./sections/Presentention";
 
 
 export function Home() {
-  
+
+
   return(
     <HomeContainer>
-      <h1>Home</h1>
+
+      <Presentation/>
+
     </HomeContainer>
   );
 };
