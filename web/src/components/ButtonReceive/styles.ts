@@ -29,10 +29,10 @@ export const ButtonReceiveContainer = styled.button`
   line-height: 1px;
   
   color: ${props => props.theme.colors["purple-100"]};
-  transition: .3s;
+  transition: .6s;
 
   &:hover {
-    transition: .3s;
+    transition: .6s;
     background: ${props => props.theme.colors["purple-100"]};
     color: ${props => props.theme.colors["white-100"]};
   }

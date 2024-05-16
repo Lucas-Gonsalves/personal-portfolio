@@ -1,18 +1,71 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+
+const animationScale = keyframes`
+
+  0% {
+    transform: translate(-50%, -50%) scale(.95);
+  }
+
+  25% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(.95);
+  }
+
+  75% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(.95);
+  }
+`;
+
+export const animationArrow = keyframes`
+  0%{
+    transform: translateY(4px);
+  }
+
+  25%{
+    transform: translateY(0px);
+
+  }
+
+  50%{
+    transform: translateY(4px);
+
+  }
+
+  75%{
+    transform: translateY(0px);
+
+  }
+
+  100%{
+    transform: translateY(4px);
+  }
+`;
 
 
 export const PresentationContainer = styled.section`
+  min-width: 32rem;
+
   width: 100%;
-  height: max-content;
-  
+  min-height: 100vh;
+
   background: ${({ theme }) => theme.colors["black-300"]};
 
   position: relative;
+  
   overflow-x: hidden;
+  overflow-y: hidden;
 
   z-index: 0;
 
-  >  img {
+  > img {
     position: absolute;
     z-index: -2;
 
@@ -20,10 +73,13 @@ export const PresentationContainer = styled.section`
     left: 50%;
   
     transform: translate(-50%, -50%);
+    animation: ${animationScale} 10s ease infinite;
   }
 
+  
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
-    height: 90vh;
+    min-height: 100vh;
+    padding-bottom: 8rem;
   }
 `;
 
@@ -85,8 +141,7 @@ export const OverlayImageBackground = styled(overlayStyled)`
 
 export const TitleContent = styled.div`
   width: 100%;
-  padding: 4rem 2rem 0;
-
+  padding: 4rem 2rem;
 
   h2 {
     margin-bottom: 1rem;
@@ -123,12 +178,13 @@ export const TitleContent = styled.div`
 
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xsm}) {
-    padding: 4rem 4rem 0;
+    padding: 4rem 4rem;
   }
 
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
-    
+    padding: 4rem 4rem;
+
     display: flex;
     align-items: center;
   
@@ -139,23 +195,32 @@ export const TitleContent = styled.div`
     gap: 6.2rem;
 
     h2 {
-      font-size: ${props => props.theme["font-size"].exg};
-
+      font-size: ${props => props.theme["font-size"].xxg};
     }
 
     h1 {
+      font-size: ${props => props.theme["font-size"].lg};
+    }
+  }
 
-      
+  @media (min-width: ${props => props.theme["device-breackpoints"].xgg}) {
+    padding: 4rem 10rem;
+  }
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].xxg}) {
+    padding: 4rem 14rem;
+
+    h2 {
+      font-size: ${props => props.theme["font-size"].exg};
+    }
+
+    h1 {
       font-size: ${props => props.theme["font-size"].lxg};
     }
 
     p {
       font-size: ${props => props.theme["font-size"].xmd};
     }
-  }
-
-  @media (min-width: ${props => props.theme["device-breackpoints"].xxg}) {
-    padding: 4rem 14rem;
   }
 `;
 
@@ -172,6 +237,8 @@ const ImageProfileStyle = styled.div`
     width: 100%;
     height: 100%;
     
+    
+
     transform: rotate(-5deg);
     border-radius: 38px;
     
@@ -179,9 +246,15 @@ const ImageProfileStyle = styled.div`
     border-width: 2px;
     border-style: solid;
 
-    background: linear-gradient(to top right, #1a0b35cc, #000000);
+    background: #0D121685;
 
-    transition: .3s;
+    box-shadow: 0 0 12px rgba(135, 80, 247, 00);
+
+    transition: 
+      transform .3s ease, 
+      box-shadow .6s ease, 
+      border-color .3s ease
+    ;
   }
 
 
@@ -189,13 +262,20 @@ const ImageProfileStyle = styled.div`
     border-color: ${props => props.theme.colors["purple-100"]};
     transform: rotate(-0deg);
 
-    transition: .3s;
+    transition: 
+      transform .3s ease, 
+      box-shadow .6s ease, 
+      border-color .3s ease
+      ;
   }
 
 
   img:active {
-    transform: scale(1.01);
-    transition: .3s;
+    transition: 
+      transform .3s ease, 
+      box-shadow .6s ease, 
+      border-color .3s ease
+      ;
   };
 `;
 
@@ -215,6 +295,10 @@ export const ImageProfileContainerMobile = styled(ImageProfileStyle)`
 export const ImageProfileContainerDesktop = styled(ImageProfileStyle)`
   display: none;
 
+  img:active {
+    box-shadow: 0 0 12px rgba(135, 80, 247);
+  }
+
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
     display: block;
     margin: 0 auto;
@@ -226,14 +310,72 @@ export const ImageProfileContainerDesktop = styled(ImageProfileStyle)`
   }
 `
 
+export const ButtonReceiveSet = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  align-items: start;
+  gap: 2rem;
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
+    flex-direction: row;
+    align-items: center;
+
+    margin-top: 6rem;
+  }
+`;
+
+
 export const ButtonNetworkSet = styled.div`
   width: min-content;
-
-  margin: 2rem 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   gap: 2rem;
+`;
+
+export const ArrowDownPresentation = styled.div`
+  
+  width: 6rem;
+  height: 6rem;
+  
+  display: none;
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: 50%;
+  
+  left: 50%;
+
+  z-index: 0;
+  transform: translate(-50%);
+  position: absolute;
+
+  bottom: 1rem;
+  box-shadow: 0 0 12px rgba(135, 80, 247, 0.0);
+  
+
+  transition: box-shadow 2s ease, background 2s ease;
+
+  img {
+    width: 3.6rem;
+    height: 3.6rem;
+
+
+    animation: ${animationArrow} 3s ease-in-out infinite;
+    color: ${props => props.theme.colors["purple-100"]};
+  }
+
+  &:hover {
+    transition: box-shadow 2s ease, background 2s ease;
+
+    background: rgba(135, 80, 247, 0.1);
+    box-shadow: 0 0 24px rgba(135, 80, 247, 0.2);
+  }
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
+    display: flex;
+  }
 `;

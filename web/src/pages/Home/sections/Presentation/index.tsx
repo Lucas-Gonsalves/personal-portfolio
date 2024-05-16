@@ -1,7 +1,20 @@
-import { ButtonNetworkSet, ImageProfileContainerDesktop, ImageProfileContainerMobile, OverlayBackground, OverlayImageBackground, PresentationContainer, TitleContent } from "./styles";
+import { 
 
-import ImageWelcomeTextBackground from "@/assets/presentation/image-welcome-background.svg"
-import LucasGonsalvesImage from "@/assets/presentation/lucas-gonçalves-image.png"
+  ButtonNetworkSet,
+  ImageProfileContainerDesktop,
+  ImageProfileContainerMobile,
+  OverlayBackground,
+  OverlayImageBackground,
+  PresentationContainer, 
+  TitleContent, 
+  ArrowDownPresentation,
+  ButtonReceiveSet,
+
+} from "./styles";
+
+import ImageWelcomeTextBackground from "@/assets/presentation/image-welcome-background.svg";
+import LucasGonsalvesImage from "@/assets/presentation/lucas-gonçalves-image.png";
+import MdKeyboardDoubleArrow from "@/assets/icons/keyboard-double-arrow-down.svg";
 
 import { HiOutlineDownload } from "react-icons/hi";
 import { FaLinkedinIn } from "react-icons/fa6";
@@ -27,12 +40,10 @@ export function Presentation() {
 
   return (
     <PresentationContainer>
-
-      
-      <Header
-        data-menu-is-open={menuIsOpen}
-        onChangeMenu={onChangeMenu}
-      />
+        <Header
+          data-menu-is-open={menuIsOpen}
+          onChangeMenu={onChangeMenu}
+        />
 
       <NavigationScroll
         data-menu-is-open={menuIsOpen}
@@ -42,6 +53,7 @@ export function Presentation() {
       <img src={ImageWelcomeTextBackground} />
    
       <TitleContent>
+
         <div>
           <h2>Lucas Gonçalves</h2>
           <h1>Desenvolvedor Full-Stack</h1>
@@ -54,23 +66,25 @@ export function Presentation() {
           <p>
             Abordo desafios complexos da experiência do usuário com criatividade, 
             desenvolvendo soluções inovadoras que transcendem o convencional e conectam bilhões de pessoas 
-            de maneira autêntica
+            de maneira autêntica.
           </p>
 
-          <ButtonReceive
-            title="Baixar CV"
-            icon={HiOutlineDownload}
-          />
-
-          <ButtonNetworkSet>
-            <ButtonNetWork
-              icon={FaLinkedinIn}
+          <ButtonReceiveSet>  
+            <ButtonReceive
+              title="Baixar CV"
+              icon={HiOutlineDownload}
             />
 
-            <ButtonNetWork
-              icon={FaGithub}
-            />
-          </ButtonNetworkSet>
+            <ButtonNetworkSet>
+              <ButtonNetWork
+                icon={FaLinkedinIn}
+              />
+
+              <ButtonNetWork
+                icon={FaGithub}
+              />
+            </ButtonNetworkSet>
+          </ButtonReceiveSet>
         </div>
 
         <ImageProfileContainerDesktop>
@@ -79,6 +93,10 @@ export function Presentation() {
         </ImageProfileContainerDesktop>
 
       </TitleContent>
+
+      <ArrowDownPresentation>
+        <img src={MdKeyboardDoubleArrow} />
+      </ArrowDownPresentation>
 
     </PresentationContainer>
   );

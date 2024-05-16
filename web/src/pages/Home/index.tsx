@@ -1,5 +1,7 @@
 import { HomeContainer } from "./styles";
-import { Presentation } from "./sections/Presentention";
+import { Presentation } from "./sections/Presentation";
+import { QualityServices } from "./sections/QualityServices";
+
 
 
 export function Home() {
@@ -9,6 +11,7 @@ export function Home() {
     <HomeContainer>
 
       <Presentation/>
+      <QualityServices/>
 
     </HomeContainer>
   );

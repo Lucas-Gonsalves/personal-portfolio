@@ -4,10 +4,9 @@ import { NavigationScrollProps } from ".";
 
 interface NavigationScrollContainerProps extends NavigationScrollProps {};
 
-
 export const NavigationScrollContainer = styled.nav<NavigationScrollContainerProps>`
   width: 100%;
-  height: 100%;
+  min-height: calc(100% - 9.5rem);
 
   position: absolute;
   z-index: 1;
@@ -46,10 +45,11 @@ export const NavigationScrollContainer = styled.nav<NavigationScrollContainerPro
   }
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
-    height: calc(90vh - 9rem);
+    min-height: calc(100% - 13.5rem);
   }
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xg}) {
     display: none;
   }
 `;
+

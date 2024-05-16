@@ -6,6 +6,6 @@ export const HomeContainer = styled.div`
   height: 100%;
 
 
-  section {
-  }
+  position: relative;
+  z-index: 0;
 `;

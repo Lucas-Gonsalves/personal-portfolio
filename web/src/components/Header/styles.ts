@@ -26,9 +26,91 @@ export const HeaderContainer = styled.header`
     padding: 4rem;
   }
 
+  @media (min-width: ${props => props.theme["device-breackpoints"].xgg}) {
+    padding: 4rem 10rem;
+  }
+
+
   @media (min-width: ${props => props.theme["device-breackpoints"].xxg}) {
     padding: 4rem 14rem;
   }
+`;
+
+export const Logo = styled.div`
+
+  position: relative;
+  z-index: 0;
+
+  cursor: pointer;
+
+  #logo-backwards {
+    opacity: 0;
+    
+    position: absolute;
+    z-index: -1;
+
+    margin-left: -100%;
+  }
+
+  #logo-square {
+    opacity: 0;
+    
+    position: absolute;
+    z-index: -2;
+
+    margin-left: -100%;
+  }
+
+  &:hover {
+    #logo-backwards {
+      opacity: 1;
+    }
+
+    img {
+      transform: scale(0.86);
+      box-shadow: 0 0 12px rgba(254, 254, 254, 0.8);
+    }
+  }
+
+  &:active {
+    #logo-backwards, #logo {
+      opacity: 0;
+    }
+    
+    #logo-square {
+      opacity: 1;
+    }
+    
+    img {
+      box-shadow: 0 0 12px rgba(135, 80, 247);
+
+      transition: transform 2s ease-out, box-shadow .6s ease, opacity .6s ease; 
+      transform: rotate(135deg) scale(0.86);
+    }
+  }
+
+  img {
+    width: 5rem;
+    height: 5rem;
+    
+    color: ${props => props.theme.colors["white-100"]};
+    transition: transform 2s ease-out, box-shadow .6s ease, opacity .6s ease; 
+
+    box-shadow: -3px 3px 6px rgba(254, 254, 254, 0.8);
+    
+    &:hover {
+      transition: transform 2s ease-out, box-shadow .6s ease, opacity .6s ease; 
+    }
+  }
+`;
+
+export const LogoHover = styled.img`
+  width: 5rem;
+  height: 5rem;
+
+  color: ${props => props.theme.colors["white-100"]};
+
+  cursor: pointer;
 `;
 
 export const ContactMailLink = styled.div`
@@ -39,17 +121,20 @@ export const ContactMailLink = styled.div`
 
   gap: 1.6rem;
 
-  svg {
-    width: 5rem;
-    height: 5rem;
-
-    color: ${props => props.theme.colors["white-100"]};
-  }
-
   a {
     display: none;
+    cursor: pointer;
+
+    color: ${props => props.theme.colors["white-200"]};
     font-size:  ${props => props.theme["font-size"].xs};
     font-weight:  ${props => props.theme["font-weight"].medium};
+
+    transition: .6s;
+
+    &:hover {
+      transition: .6s;
+      color: ${props => props.theme.colors["white-100"]};
+    }
   }
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {

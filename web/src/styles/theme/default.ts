@@ -55,14 +55,20 @@ export const defaultTheme = {
     "text-icons": "'Russo One', sans-serif",
     title: "'Almarai', sans-serif",
   },
-
+  
+  "line-height": {
+    common: "150%",
+  },
 
   "device-breackpoints": {
     xs: "375px",
     xsm: "475px",
+    s: "600px",
     xm: "768px",
     exm: "900px",
     xg: "1024px",
-    xxg: "1440px",
+    xgg: "1190px",
+    xxg: "1340px",
+    exg: "1440px",
   },
 };
