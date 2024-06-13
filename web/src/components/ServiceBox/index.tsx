@@ -63,7 +63,7 @@ export function ServiceBox({...rest}: ServiceBoxProps) {
           </ServiceTopicTitle>
 
           <p>
-            Eu destrincho problemas complexos de experiência do usuário para criar soluções focadas na integridade que conectam bilhões de pessoas
+            Eu destrincho problemas complexos de experiência do usuário para criar soluções que conectam bilhões de pessoas
           </p>
 
           <PiArrowDownRightLight/>
@@ -88,7 +88,7 @@ export function ServiceBox({...rest}: ServiceBoxProps) {
           </ServiceTopicTitle>
 
           <p>
-            Eu destrincho problemas complexos de experiência do usuário para criar soluções focadas na integridade que conectam bilhões de pessoas
+            Eu destrincho problemas complexos de experiência do usuário para criar soluções que conectam bilhões de pessoas
           </p>
           
           <PiArrowDownRightLight/>
@@ -113,7 +113,7 @@ export function ServiceBox({...rest}: ServiceBoxProps) {
           </ServiceTopicTitle>
 
           <p>
-            Eu destrincho problemas complexos de experiência do usuário para criar soluções focadas na integridade que conectam bilhões de pessoas
+            Eu destrincho problemas complexos de experiência do usuário para criar soluções que conectam bilhões de pessoas
           </p>
 
           <PiArrowDownRightLight/>
@@ -138,7 +138,7 @@ export function ServiceBox({...rest}: ServiceBoxProps) {
           </ServiceTopicTitle>
 
           <p>
-            Eu destrincho problemas complexos de experiência do usuário para criar soluções focadas na integridade que conectam bilhões de pessoas
+            Eu destrincho problemas complexos de experiência do usuário para criar soluções que conectam bilhões de pessoas
           </p>
 
           <PiArrowDownRightLight/>

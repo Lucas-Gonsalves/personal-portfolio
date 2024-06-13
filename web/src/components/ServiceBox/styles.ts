@@ -10,7 +10,7 @@ interface ServiceTopicProps {
 
 
 const hoverTopicStyle = css`
-  transition: .6s ease;
+  transition: all .8s ease;
 
   > div {
       
@@ -26,7 +26,6 @@ const hoverTopicStyle = css`
 `;
 
 export const ServiceBoxContainer = styled.ul`
-  max-width: 139.6rem;
   width: 100%;
 
   height: max-content;
@@ -38,7 +37,7 @@ export const ServiceBoxContainer = styled.ul`
   display: flex;
   flex-direction: column;
 
-  transition: .6s ease;
+  transition: all .8s ease;
 `;
 
 export const Selector = styled.div<SelectorProps>`
@@ -58,7 +57,7 @@ export const Selector = styled.div<SelectorProps>`
   transform: translate(-50%); 
   transition: all .6s ease;
 
-  background: linear-gradient(to right, #8750f7 0%, #2a1454 100%);
+  background-image: linear-gradient(to right, #8750f7 0%, #2a1454 100%);
 `;
 
 export const ServiceTopic = styled.li<ServiceTopicProps>`
@@ -113,7 +112,7 @@ export const ServiceTopicContent = styled.div`
     min-height: 3rem;
     color: ${props => props.theme.colors["purple-100"]}; 
 
-    transition: .6s ease;
+    transition: all .8s ease;
   }
 
   > svg {
@@ -189,7 +188,7 @@ export const ServiceTopicTitleContent = styled.div`
   }
 
   span {
-    transition: .6s ease;
+    transition: all .8s ease;
     color: ${props => props.theme.colors["purple-100"]}; 
 
     font-weight: ${props => props.theme["font-weight"].bold};

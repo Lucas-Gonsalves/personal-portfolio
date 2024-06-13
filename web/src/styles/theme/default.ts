@@ -3,6 +3,7 @@ export const defaultTheme = {
 
   colors: {
     "white-100": "#fefefe",
+    "white-150": "#ededed",
     "white-200": "#dddddd",
     
     "black-100": "#010101",
@@ -25,7 +26,12 @@ export const defaultTheme = {
   
 
   "font-size": {
-    xs: "1.5rem",
+    s: "1rem",
+    xs: "1.1rem",
+    xss: "1.2rem",
+    xxs: "1.3rem",
+    mxs: "1.4rem",
+    m: "1.5rem",
     xsm: "1.6rem",
     xm: "1.8rem",
     xmd: "2rem",
@@ -70,5 +76,6 @@ export const defaultTheme = {
     xgg: "1190px",
     xxg: "1340px",
     exg: "1440px",
+    xlg: "1640px",
   },
 };

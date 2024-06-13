@@ -2,11 +2,9 @@ import styled from "styled-components";
 
 
 export const QualityServicesContainer = styled.section`
-  min-width: 32rem;
   width: 100%;
 
   height: max-content;
-  min-height: max-content;
 
   position: relative;
   z-index: 0;
@@ -14,25 +12,32 @@ export const QualityServicesContainer = styled.section`
   display: flex;
   flex-direction: column;
 
+  padding: 6rem 2rem 8rem;
+
   > #service-box {
-    padding: 4rem 2rem;
-    margin: auto;
+    margin: auto 0;
   }
-
+  
   @media (min-width: ${props => props.theme["device-breackpoints"].xsm}) {
-    > #service-box {
-      padding: 4rem 4rem;
-    }
+    padding: 8rem 4rem; 
   }
-
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
-    height: 100vh;
-    min-height: 100vh;
+    height: max-content;
+    min-height: calc(100vh - 9.5rem);
+  }
 
-    > #service-box {
-      padding: 4rem 4rem;
-    }
+  @media (min-width: ${props => props.theme["device-breackpoints"].xgg}) {
+    padding: 8rem 12rem;
+  }
+
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].xxg}) {
+    padding: 8rem 18rem;
+  }
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].exg}) {
+    padding: 8rem 24rem;
   }
 `;
 
@@ -40,8 +45,6 @@ export const QualityServicesContainer = styled.section`
 export const TitleContent = styled.div`
   max-width: max-content;
   margin: 0 auto;
-
-  padding: 5rem 2rem 0;
 
   > h2 {
     text-align: center;
@@ -57,26 +60,26 @@ export const TitleContent = styled.div`
 
   
   > p {
-    margin-top: 1.5rem;
+    margin: 1.5rem 0 4rem;
     max-width: 70rem;
 
     text-align: center;
 
-    font-size: ${props => props.theme["font-size"].xm};
+    font-size: ${props => props.theme["font-size"].xsm};
     font-weight: ${props => props.theme["font-weight"].light};
 
     line-height: 150%;
     color: ${props => props.theme.colors["white-200"]}; 
   }
 
-  @media (min-width: ${props => props.theme["device-breackpoints"].xsm}) {
-    padding: 4rem 4rem 0;
-  }
-
   @media (min-width: ${props => props.theme["device-breackpoints"].xg}) {
-    
     > h2 {
       font-size: ${props => props.theme["font-size"].lg};
     }
+  
+    > p {
+      font-size: ${props => props.theme["font-size"].xm};
+    }
   }
+
 `;

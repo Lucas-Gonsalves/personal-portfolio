@@ -1,8 +1,8 @@
-import { AllHTMLAttributes } from "react";
+import React, { AllHTMLAttributes, ButtonHTMLAttributes } from "react";
 import { ButtonSendContainer } from "./styles";
 
 
-interface ButtonSendProps extends AllHTMLAttributes<HTMLButtonElement> {
+interface ButtonSendProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;
 };
 
@@ -12,11 +12,14 @@ export function ButtonSend({
   disabled,
   title,
   onClick,
+  ...props
 
 }: ButtonSendProps) {
 
 
-  function handleOnClick() {
+  function clickButton(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    event.currentTarget.blur()
+
     onClick && onClick();
     return;
   };
@@ -25,7 +28,8 @@ export function ButtonSend({
   return(
     <ButtonSendContainer
       disabled={disabled}
-      onClick={() => handleOnClick()}
+      onClick={clickButton}
+      {...props}
     >
 
       {title}

@@ -4,23 +4,23 @@ import styled, { keyframes } from "styled-components";
 const animationScale = keyframes`
 
   0% {
-    transform: translate(-50%, -50%) scale(.95);
+    transform: translate(-50%, -50%) scale(0.85);
   }
 
   25% {
-    transform: translate(-50%, -50%) scale(1.05);
+    transform: translate(-50%, -50%) scale(1);
   }
 
   50% {
-    transform: translate(-50%, -50%) scale(.95);
+    transform: translate(-50%, -50%) scale(0.85);
   }
 
   75% {
-    transform: translate(-50%, -50%) scale(1.05);
+    transform: translate(-50%, -50%) scale(1);
   }
 
   100% {
-    transform: translate(-50%, -50%) scale(.95);
+    transform: translate(-50%, -50%) scale(0.85);
   }
 `;
 
@@ -51,7 +51,6 @@ export const animationArrow = keyframes`
 
 
 export const PresentationContainer = styled.section`
-  min-width: 32rem;
 
   width: 100%;
   min-height: 100vh;
@@ -59,11 +58,15 @@ export const PresentationContainer = styled.section`
   background: ${({ theme }) => theme.colors["black-300"]};
 
   position: relative;
+  padding-top: 9.5rem;
   
   overflow-x: hidden;
   overflow-y: hidden;
 
   z-index: 0;
+
+  display: flex;
+  align-items: center;
 
   > img {
     position: absolute;
@@ -73,12 +76,15 @@ export const PresentationContainer = styled.section`
     left: 50%;
   
     transform: translate(-50%, -50%);
+    filter: opacity(0.95);
+
     animation: ${animationScale} 10s ease infinite;
   }
 
-  
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
     min-height: 100vh;
+    max-height: max-content;
+    padding-top: 13.5rem;
     padding-bottom: 8rem;
   }
 `;
@@ -141,7 +147,8 @@ export const OverlayImageBackground = styled(overlayStyled)`
 
 export const TitleContent = styled.div`
   width: 100%;
-  padding: 4rem 2rem;
+  padding: 2.5rem 2rem;
+  
 
   h2 {
     margin-bottom: 1rem;
@@ -178,7 +185,7 @@ export const TitleContent = styled.div`
 
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xsm}) {
-    padding: 4rem 4rem;
+    padding: 3.5rem 4rem;
   }
 
 
@@ -204,16 +211,17 @@ export const TitleContent = styled.div`
   }
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xgg}) {
-    padding: 4rem 10rem;
+    padding: 4rem 12rem;
   }
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xxg}) {
-    padding: 4rem 14rem;
-
+    padding: 4rem 18rem;
+    
+    
     h2 {
       font-size: ${props => props.theme["font-size"].exg};
     }
-
+    
     h1 {
       font-size: ${props => props.theme["font-size"].lxg};
     }
@@ -222,7 +230,12 @@ export const TitleContent = styled.div`
       font-size: ${props => props.theme["font-size"].xmd};
     }
   }
-`;
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].exg}) {
+    padding: 4rem 24rem;
+    gap: 12.2rem;
+  }
+  `;
 
 
 const ImageProfileStyle = styled.div`
@@ -301,7 +314,7 @@ export const ImageProfileContainerDesktop = styled(ImageProfileStyle)`
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
     display: block;
-    margin: 0 auto;
+    margin: 0 0 0 auto;
   }
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xg}) {

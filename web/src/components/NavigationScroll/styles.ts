@@ -1,14 +1,18 @@
 import styled from "styled-components";
-import { NavigationScrollProps } from ".";
 
 
-interface NavigationScrollContainerProps extends NavigationScrollProps {};
+interface NavigationScrollContainerProps {
+  "data-menu-is-open": boolean;
+  "data-is-scroll-initial"?: boolean;
+};
 
 export const NavigationScrollContainer = styled.nav<NavigationScrollContainerProps>`
   width: 100%;
-  min-height: calc(100% - 9.5rem);
+  min-height: 100%;
 
-  position: absolute;
+  top: 9.5rem; 
+
+  position: fixed;
   z-index: 1;
 
   background: rgba(42, 20, 84, 0.5);
@@ -17,7 +21,7 @@ export const NavigationScrollContainer = styled.nav<NavigationScrollContainerPro
   transform: ${props => props["data-menu-is-open"] ? "scaleY(1)" : "scaleY(0)"};
   transform-origin: top;
 
-  transition: transform .3s;
+  transition: all .6s ease-in-out;
 
   ul {
     display: flex;
@@ -44,8 +48,10 @@ export const NavigationScrollContainer = styled.nav<NavigationScrollContainerPro
     }
   }
 
+
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
-    min-height: calc(100% - 13.5rem);
+    top: ${props => props["data-is-scroll-initial"] ? "13.5rem" : "9.5rem"}; 
+
   }
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xg}) {

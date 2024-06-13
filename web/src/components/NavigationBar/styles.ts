@@ -16,11 +16,13 @@ export const NavigationBarContainer = styled.nav`
       
 
       button {
-        font-size: ${props => props.theme["font-size"].xs};
+        font-size: ${props => props.theme["font-size"].m};
         font-weight: ${props => props.theme["font-weight"].medium};
 
         display: flex;
         flex-direction: column-reverse;
+
+        outline: none;
 
         border: none;
         background: none;
@@ -30,6 +32,8 @@ export const NavigationBarContainer = styled.nav`
         color: ${props => props.theme.colors["white-200"]};
 
         position: relative;
+        
+        transition: transform 0.3s ease-in-out, color 0.3s ease;
 
         &::before {
           content: "";
@@ -43,15 +47,18 @@ export const NavigationBarContainer = styled.nav`
           transform-origin: right;
           transform: scaleX(0);
           
-          transition: transform 0.3s ease-in-out;
+          transition: transform 0.3s ease-in-out, color 0.3s ease;
         }
 
-        &:hover {
-          transition: transform 0.3s ease-in-out;
+        &:hover, 
+        &:not(:hover):not(:active):focus {
+          transition: transform 0.3s ease-in-out, color 0.3s ease;
+
           color: ${props => props.theme.colors["white-100"]};
         }
 
-        &:hover::before {
+        &:hover::before, 
+        &:not(:hover):not(:active):focus:before {
           transform-origin: left;
           transform: scaleX(1);
         }

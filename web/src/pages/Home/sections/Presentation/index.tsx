@@ -20,34 +20,14 @@ import { HiOutlineDownload } from "react-icons/hi";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 
-import { Header } from "@/components/Header";
-import { NavigationScroll } from "@/components/NavigationScroll";
-
-import { useState } from "react";
 import { ButtonReceive } from "@/components/ButtonReceive";
 import { ButtonNetWork } from "@/components/ButtonNetwork";
 
 
 export function Presentation() {
-  const [ menuIsOpen, setMenuIsOpen ] = useState<boolean>(false);
-
-
-  function onChangeMenu() {
-    menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true);
-    return;
-  };
-
 
   return (
     <PresentationContainer>
-        <Header
-          data-menu-is-open={menuIsOpen}
-          onChangeMenu={onChangeMenu}
-        />
-
-      <NavigationScroll
-        data-menu-is-open={menuIsOpen}
-      />
 
       <OverlayBackground/>
       <img src={ImageWelcomeTextBackground} />
@@ -78,10 +58,14 @@ export function Presentation() {
             <ButtonNetworkSet>
               <ButtonNetWork
                 icon={FaLinkedinIn}
+                target="_blank"
+                href="https://www.linkedin.com/in/lucas-gon%C3%A7alves-da-luz-498425276/"
               />
 
               <ButtonNetWork
                 icon={FaGithub}
+                target="_blank"
+                href="https://github.com/Lucas-Gonsalves"
               />
             </ButtonNetworkSet>
           </ButtonReceiveSet>

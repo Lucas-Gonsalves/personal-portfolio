@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 interface ScrollProgressStateProps {
-  "data-progress"?: boolean;
+  "data-scroll-progress"?: boolean;
 };
 
 
@@ -10,7 +10,6 @@ export const ScrollProgressContainer = styled.div<ScrollProgressStateProps>`
 
   width: 4.6rem;
   height: 4.6rem;
-
   
   display: flex;
   align-items: center;
@@ -19,10 +18,10 @@ export const ScrollProgressContainer = styled.div<ScrollProgressStateProps>`
   border-radius: 50%;
 
   transition: .8s ease-in-out;
-  cursor: ${props => props["data-progress"] ? "pointer" : "auto"};;
+  cursor: ${props => props["data-scroll-progress"] ? "pointer" : "auto"};;
 
-  filter: ${props => props["data-progress"] ? "opacity(.9)" : "opacity(0)"};
-  transform: ${props => props["data-progress"] ? "translateY(0)" : "translateY(1.6rem)"};;
+  filter: ${props => props["data-scroll-progress"] ? "opacity(.9)" : "opacity(0)"};
+  transform: ${props => props["data-scroll-progress"] ? "translateY(0)" : "translateY(1.6rem)"};;
 
   position: relative;
   z-index: 0;
@@ -39,8 +38,8 @@ export const ScrollProgressContainer = styled.div<ScrollProgressStateProps>`
   }
 
   &:hover {
-    filter: ${props => props["data-progress"] ? "opacity(1)" : "opacity(0)"};
-    box-shadow: ${props => props["data-progress"] ? "0 0 12px rgba(135, 80, 247, 0.4)" : "0 0 12px rgba(135, 80, 247, 0.0)"};
+    filter: ${props => props["data-scroll-progress"] ? "opacity(1)" : "opacity(0)"};
+    box-shadow: ${props => props["data-scroll-progress"] ? "0 0 12px rgba(135, 80, 247, 0.4)" : "0 0 12px rgba(135, 80, 247, 0.0)"};
     transition: .8s ease;
   }
 `;

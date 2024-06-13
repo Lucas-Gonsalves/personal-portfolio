@@ -13,6 +13,8 @@ export const ButtonReceiveContainer = styled.button`
 
   gap: .4rem;
   
+  outline: none;
+
   border: none; 
   border-radius: 10rem;
   
@@ -22,7 +24,7 @@ export const ButtonReceiveContainer = styled.button`
   border-width: 1px;
   border-color: ${props => props.theme.colors["purple-100"]};
 
-  font-size: ${props => props.theme["font-size"].xs};
+  font-size: ${props => props.theme["font-size"].m};
   font-weight: ${props => props.theme["font-weight"].medium};
   
   letter-spacing: 1px;
@@ -31,7 +33,7 @@ export const ButtonReceiveContainer = styled.button`
   color: ${props => props.theme.colors["purple-100"]};
   transition: .6s;
 
-  &:hover {
+  &:hover, &:focus {
     transition: .6s;
     background: ${props => props.theme.colors["purple-100"]};
     color: ${props => props.theme.colors["white-100"]};

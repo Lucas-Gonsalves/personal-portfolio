@@ -18,8 +18,6 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 62.5%;
   }
   
-  html {
-  }
 
   body {
 
@@ -73,7 +71,7 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   
-  body, input, text-area, button {
+  body, input, text-area, button, select, textarea {
     font-size:  ${props => props.theme["font-size"].xsm};
     font-family: ${props => props.theme["font-family"].default};
     font-weight: ${props => props.theme["font-weight"].regular};

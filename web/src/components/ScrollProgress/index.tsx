@@ -3,15 +3,17 @@ import { ScrollProgressContainer, ScrollProgressStateSVG } from "./styles";
 import iconArrowUp from "@/assets/icons/arrow-up.svg";
 
 
-interface ScrollProgressProps extends HTMLAttributes<HTMLDivElement> {
-
-}
+interface ScrollProgressProps extends HTMLAttributes<HTMLDivElement> {}
 
 
-export function ScrollProgress({...rest}: ScrollProgressProps) {
+export function ScrollProgress({
+
+  ...rest
+
+}: ScrollProgressProps) {
+
   
   const [ scrollProgress, setScrollProgress ] = useState(0);
-  
 
   function handleScroll() {
     const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -28,7 +30,7 @@ export function ScrollProgress({...rest}: ScrollProgressProps) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  
 
   function goToTopScroll(): void {
 
@@ -40,13 +42,15 @@ export function ScrollProgress({...rest}: ScrollProgressProps) {
     return;
   };
 
+
   const scrollProgressFormated = scrollProgress > 0;
   const svgStrokeDashoffset = (100 - scrollProgress) * 3.08;
   
+
   return (
 
     <ScrollProgressContainer
-      data-progress={scrollProgressFormated}
+      data-scroll-progress={scrollProgressFormated}
       onClick={() => goToTopScroll()}
       {...rest}
     >

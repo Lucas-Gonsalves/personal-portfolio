@@ -1,4 +1,12 @@
-import { HeaderContainer, ContactMailLink, MenuScroll, NavigationButton, Logo } from "./styles";
+import { 
+  
+  HeaderContainer, 
+  ContactMailLink, 
+  MenuScroll, 
+  NavigationButton, 
+  Logo, 
+
+} from "./styles";
 
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { HiXMark } from "react-icons/hi2";
@@ -9,19 +17,44 @@ import logoLBackWards from "@/assets/logos/L-white-backwards.svg"
 import logoSquarePurple from "@/assets/logos/square-purple.svg"
 
 import { ButtonSend } from "../ButtonSend";
+import { useEffect, useState } from "react";
+
 
 interface HeaderProps {
-  "data-menu-is-open": boolean;
+  isScrollInitial?: boolean;
+  menuIsOpen: boolean;
   onChangeMenu: () => void;
 };
 
 
 export function Header({ 
 
-  "data-menu-is-open": dataMenuIsOpen,
-  onChangeMenu,
+  menuIsOpen = false,
+  onChangeMenu = () => {},
 
 }: HeaderProps) {
+
+  const [ scrollProgress, setScrollProgress ] = useState(0);
+
+  function handleScroll() {
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPosition = window.scrollY;
+    const progress = totalHeight > 0 ? (scrollPosition / totalHeight) * 100: 0;
+    
+    setScrollProgress(progress);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  
+
+  const isScrollInitial = scrollProgress <= 0;
+
 
   function handleOnChangeMenu(): void {
     onChangeMenu();
@@ -29,8 +62,10 @@ export function Header({
   };
 
   return(
-    <HeaderContainer>
-
+    <HeaderContainer
+      data-is-scroll-initial={isScrollInitial}
+    >
+    
       <ContactMailLink>
         <Logo>
           <img id="logo" src={logoL} />
@@ -53,9 +88,8 @@ export function Header({
       <MenuScroll
         onClick={() => handleOnChangeMenu()}
       >
-        {dataMenuIsOpen ? <HiXMark/> : <HiOutlineMenuAlt3/>}
+        {menuIsOpen ? <HiXMark/> : <HiOutlineMenuAlt3/>}
       </MenuScroll>
-
 
     </HeaderContainer>
   );

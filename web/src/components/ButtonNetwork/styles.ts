@@ -1,18 +1,20 @@
 import styled from "styled-components";
 
 
-export const ButtonNetWorkContainer = styled.button`
+export const ButtonNetWorkContainer = styled.a`
   width: 4.4rem;
   height: 4.4rem;
 
   cursor: pointer;
+  outline: none;
   position: relative;
+  text-decoration: none;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background: none;
+  background: transparent;
 
   border-color: ${props => props.theme.colors["purple-100"]};
   border-width: 1px;
