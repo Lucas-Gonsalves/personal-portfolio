@@ -22,7 +22,7 @@ export const Selected = styled.button<SelectedProps>`
   position: relative;
   z-index: 0;
   
-  padding: 1.5rem;
+  padding: 1.3rem 1.4rem;
   border-radius: 8px;
 
   transition: .6s ease;
@@ -35,23 +35,27 @@ export const Selected = styled.button<SelectedProps>`
 
   border-width: 1px;
   border-style: solid;
-  border-color: ${props => props["data-is-select-open"] ? props.theme.colors["purple-100"] : props.theme.colors["gray-400"]};
+  border-color: ${ props => props["data-is-select-open"] ? props.theme.colors["purple-100"] : props.theme.colors["gray-400"]};
   
   background: ${props => props.theme.colors["black-100"]};
 
-  > input {
-    width: 95%;
-
-    cursor: pointer;
-    
-    background: transparent;
-    border: none;
-
+  > span {
     font-weight: ${props => props.theme["font-weight"].light};
-    font-size: ${props => props.theme["font-size"].m};
+    font-size: ${props => props.theme["font-size"].xxs};
+  }
 
-    outline: none;
-    user-select: none;
+  > input {
+    all: unset;
+
+    position: absolute;
+    z-index: -1;
+
+    opacity: 0;
+    
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
   }
 
   svg {
@@ -68,7 +72,34 @@ export const Selected = styled.button<SelectedProps>`
   }
 
   &:focus {
-    border-color: ${props => props.theme.colors["purple-100"]};
+    border-color: ${props => props["aria-invalid"] ? props.theme.colors["red-100"] : props.theme.colors["purple-100"]};
+  }
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].xs}) {
+
+    span {
+      font-size: ${props => props.theme["font-size"].mxs};
+    }
+  }
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].xsm}) {
+    padding: 1.3rem 1.6rem;
+
+    span {
+      font-size: ${props => props.theme["font-size"].xxs};
+    }
+  }
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].s}) {
+    padding: 1.4rem 1.8rem;
+
+    span {
+      font-size: ${props => props.theme["font-size"].m};
+    }
+  }
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {    
+    padding: 1.4rem 2rem;
   }
 `;
 

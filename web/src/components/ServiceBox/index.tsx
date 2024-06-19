@@ -56,14 +56,14 @@ export function ServiceBox({...rest}: ServiceBoxProps) {
 
             <ServiceTopicTitleContent>
               <span>01</span>
-              <h3>Branding Design</h3>
+              <h3>Front-End</h3>
             </ServiceTopicTitleContent>
 
             <PiArrowDownRightLight/>
           </ServiceTopicTitle>
 
           <p>
-            Eu destrincho problemas complexos de experiência do usuário para criar soluções que conectam bilhões de pessoas
+            Criamos interfaces modernas e responsivas, focando em um design intuitivo e alta performance com React.
           </p>
 
           <PiArrowDownRightLight/>
@@ -72,7 +72,7 @@ export function ServiceBox({...rest}: ServiceBoxProps) {
       </ServiceTopic>
 
       <ServiceTopic
-        data-current-focus={isCurrentHundred}
+        data-current-focus={isCurrentTwoHundred}  
         { ...handleHeightPosition("100%")}
       >
 
@@ -81,39 +81,14 @@ export function ServiceBox({...rest}: ServiceBoxProps) {
 
             <ServiceTopicTitleContent>
               <span>02</span>
-              <h3>Web Design</h3>
+              <h3>Optimization</h3>
             </ServiceTopicTitleContent>
 
             <PiArrowDownRightLight/>
           </ServiceTopicTitle>
 
           <p>
-            Eu destrincho problemas complexos de experiência do usuário para criar soluções que conectam bilhões de pessoas
-          </p>
-          
-          <PiArrowDownRightLight/>
-        </ServiceTopicContent>
-
-      </ServiceTopic>
-
-      <ServiceTopic
-        data-current-focus={isCurrentTwoHundred}  
-        { ...handleHeightPosition("200%")}
-      >
-
-        <ServiceTopicContent>
-          <ServiceTopicTitle>
-
-            <ServiceTopicTitleContent>
-              <span>03</span>
-              <h3>Designer UI/UX</h3>
-            </ServiceTopicTitleContent>
-
-            <PiArrowDownRightLight/>
-          </ServiceTopicTitle>
-
-          <p>
-            Eu destrincho problemas complexos de experiência do usuário para criar soluções que conectam bilhões de pessoas
+            Otimizamos seu site para carregamento rápido e navegação eficiente, usando minificação de código e caching.
           </p>
 
           <PiArrowDownRightLight/>
@@ -123,6 +98,31 @@ export function ServiceBox({...rest}: ServiceBoxProps) {
 
       <ServiceTopic
         data-current-focus={isCurrentThreeHundred}
+        { ...handleHeightPosition("200%")}
+      >
+
+        <ServiceTopicContent>
+          <ServiceTopicTitle>
+
+            <ServiceTopicTitleContent>
+              <span>03</span>
+              <h3>API Integration</h3>
+            </ServiceTopicTitleContent>
+
+            <PiArrowDownRightLight/>
+          </ServiceTopicTitle>
+
+          <p>
+            Integramos seu site com APIs para funcionalidades avançadas e comunicação eficiente com outros serviços.
+          </p>
+
+          <PiArrowDownRightLight/>
+        </ServiceTopicContent>
+
+      </ServiceTopic>
+
+      <ServiceTopic
+        data-current-focus={isCurrentHundred}
         { ...handleHeightPosition("300%")}
       >
 
@@ -131,16 +131,16 @@ export function ServiceBox({...rest}: ServiceBoxProps) {
 
             <ServiceTopicTitleContent>
               <span>04</span>
-              <h3>Graphics Design</h3>
+              <h3>Responsive Design</h3>
             </ServiceTopicTitleContent>
 
             <PiArrowDownRightLight/>
           </ServiceTopicTitle>
 
           <p>
-            Eu destrincho problemas complexos de experiência do usuário para criar soluções que conectam bilhões de pessoas
+            Desenvolvemos websites adaptáveis para todos os dispositivos, garantindo acessibilidade e estética nas telas.
           </p>
-
+          
           <PiArrowDownRightLight/>
         </ServiceTopicContent>
 

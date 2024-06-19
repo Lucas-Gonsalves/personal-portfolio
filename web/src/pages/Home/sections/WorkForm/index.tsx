@@ -9,26 +9,83 @@ import {
   
 } from "./styles";
 
-import { MdOutlinePhoneInTalk } from "react-icons/md";
-import { IoIosMail } from "react-icons/io";
 import { IoIosPin } from "react-icons/io";
+import { IoIosMail } from "react-icons/io";
+import { MdOutlinePhoneInTalk } from "react-icons/md";
 
 
 import { Input } from "@/components/Input";
+import { Select } from "@/components/Select";
 import { Textarea } from "@/components/Textarea";
 import { TopicIcon } from "@/components/TopicIcon";
 import { ButtonSend } from "@/components/ButtonSend";
-import { Select } from "@/components/Select";
+
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod"
 
 
+const workFormSchema = z.object({
 
-export function WorkForm() {
+  name: z.string().min(1, "Por favor, forneça seu nome.").regex(/^[a-zA-ZÀ-ÿ\s]+$/, "Por favor, forneça uma nome válido."),
+  lastName: z.string().min(1, "Por favor, forneça seu ultimo nome."),
+  email: z.string().email("Por favor forneça um e-mail válido."),
 
-  
+  tell: z.string()
+    .min(15, "Por favor, forneça seu número de telefone.")
+    .regex(/^\(\d{2}\) \d{5}-\d{4}$/, "Por favor, forneça um número de telefone no formato (99) 99999-9999."),
 
+  service: z.enum(["Branding Design", "Web Design", "UI/UX Design", "App Design", "Outros"], {
+    errorMap: () => ({message: "Por favor selecione um serviço."})
+  }),
+
+  message: z.string().min(1, "Por favor, forneça uma mensagem para o corpo do e-mail.")
+})
+
+type WorkFormSchemaProps = z.infer<typeof workFormSchema>
+
+interface WorkFormProps {
+  id?: string;
+}
+
+export function WorkForm({
+  id = "",
+}: WorkFormProps) {
+
+  const {
+
+    register,
+    handleSubmit,
+
+    formState: {
+      errors
+    }
+
+  } = useForm<WorkFormSchemaProps>({
+    mode: "all",
+    shouldFocusError: false,
+    reValidateMode: "onChange",
+    resolver: zodResolver(workFormSchema),
+
+    defaultValues: {
+      service: "Outros",
+    }
+  });
+
+
+  function onSubmitForm(data: WorkFormSchemaProps) {
+
+    console.log(data);
+    return;
+  };
+
+
+  const errorsMessage = Object.values(errors)[0]?.message;
 
   return(
-    <WorkFormContainer>
+    <WorkFormContainer
+      id={id}
+    >
 
       <FormContainer>
 
@@ -41,26 +98,44 @@ export function WorkForm() {
           </p>
         </TitleContent>
 
-        <Form>
+        <Form
+          onSubmit={handleSubmit(onSubmitForm)}
+        >
 
           <InputSet>
             <div>
               <Input
                 placeholder="Primeiro nome"
+                autoComplete="username"
+                aria-invalid={!!errors.name?.message}
+
+                {...register("name")}
               />
 
               <Input
                 placeholder="Ultimo nome"
+                autoComplete="additional-name"
+                aria-invalid={!!errors.lastName?.message}
+
+                {...register("lastName")}
               />
             </div>
 
             <div>
               <Input
                 placeholder="Endereço de e-mail"
+                autoComplete="email"
+                aria-invalid={!!errors.email?.message}
+
+                {...register("email")}
               />
 
               <Input
                 placeholder="Número de telefone"
+                autoComplete="tel-local"
+                aria-invalid={!!errors.tell?.message}
+
+                {...register("tell")}
               />
             </div>
           </InputSet>
@@ -70,15 +145,23 @@ export function WorkForm() {
             optionsGroup="Services"
             categoryName="Serviços"
             options={[ "Branding Design", "Web Design", "UI/UX Design" ,"App Design" ]}
+            ariaInvalid={!!errors.service?.message}
+
+            {...register("service")}
           />
 
 
           <Textarea
             placeholder="Mensagem"
+            aria-invalid={!!errors.message?.message}
+
+            {...register("message")}
           />
 
+          <span>{errorsMessage}</span>
+
           <ButtonSend
-            type="reset"
+            type="submit"
             title="Enviar Mensagem"
           />
         </Form>

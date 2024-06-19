@@ -23,11 +23,18 @@ import { FaGithub } from "react-icons/fa";
 import { ButtonReceive } from "@/components/ButtonReceive";
 import { ButtonNetWork } from "@/components/ButtonNetwork";
 
+interface PresentationProps {
+  id?: string;
+}
 
-export function Presentation() {
+export function Presentation({
+  id = "",
+}: PresentationProps) {
 
   return (
-    <PresentationContainer>
+    <PresentationContainer
+      id={id}
+    >
 
       <OverlayBackground/>
       <img src={ImageWelcomeTextBackground} />

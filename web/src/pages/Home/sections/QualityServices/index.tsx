@@ -9,13 +9,21 @@ import {
 import { ServiceBox } from "@/components/ServiceBox";
 
 
-export function QualityServices() {
+interface QualityServicesProps {
+  id?: string;
+}
+
+export function QualityServices({
+  id = "",
+}: QualityServicesProps ) {
 
   return(
-    <QualityServicesContainer>
+    <QualityServicesContainer
+      id={id}
+    >
 
       <TitleContent>
-        <h2>Meus serviços de qualidade</h2>
+        <h2>Serviços de qualidade</h2>
 
         <p>
           Colocamos suas ideias e, portanto, seus desejos na 

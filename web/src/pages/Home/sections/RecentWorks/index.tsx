@@ -59,14 +59,22 @@ const cardWorkList : CardWorkProps[] = [
   },
 ];
 
+interface RecentWorksProps {
+  id?: string;
+}
 
-export function RecentWorks() {
+
+export function RecentWorks({
+  id = "",
+}: RecentWorksProps) {
   return(
-    <RecentWorksContainer>
+    <RecentWorksContainer
+      id={id}
+    >
       <OverlayBackground/>
 
       <TitleContent>
-        <h2>Meus Trabalhos recentes</h2>
+        <h2>Trabalhos Recentes</h2>
 
         <p>
           Colocamos suas ideias e, portanto, seus desejos na 

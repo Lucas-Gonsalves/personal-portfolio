@@ -18,7 +18,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement>{}
 export const Input = forwardRef<HTMLInputElement, InputProps>((
 
   {
-    ...rest
+    ...props
   },
 
   ref 
@@ -28,7 +28,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((
   return (
 
     <InputContainer
-      { ...rest }
+      { ...props }
       ref={ ref }
     />
 

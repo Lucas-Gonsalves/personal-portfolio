@@ -1,14 +1,18 @@
-import { useEffect, useState } from "react";
+import { AnchorHTMLAttributes, useEffect, useState } from "react";
 import { NavigationScrollContainer } from "./styles";
 
 export interface NavigationScrollProps {
   menuIsOpen: boolean;
+  sections?: string[];
+  onChangeMenu: () => void;
 };
 
 
 export function NavigationScroll({ 
   
+  sections = [],
   menuIsOpen,
+  onChangeMenu,
 
 }: NavigationScrollProps) {
 
@@ -22,6 +26,35 @@ export function NavigationScroll({
     
     setScrollProgress(progress);
   };
+
+  function goToSection(sectionId: string) {
+    const section = document.getElementById(sectionId);
+    
+    if(section) {
+      const paddingTop = parseInt(window.getComputedStyle(section).paddingTop);
+      const sectionTop = section.offsetTop - paddingTop;
+
+      window.scrollTo({
+        top: sectionTop,
+        behavior: "smooth"
+      });
+    };
+
+    return;
+  };
+
+  function onClickAnchor(
+    section: string
+  ) {
+
+    setTimeout(() => {
+      goToSection(section);
+    }, 600)
+    onChangeMenu();
+
+    return;
+  };
+
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -39,11 +72,20 @@ export function NavigationScroll({
       data-is-scroll-initial={isScrollInitial}
     >
       <ul>
-        <li><a>SERVIÇOS</a></li>
-        <li><a>PROJETOS</a></li>
-        <li><a>SOBRE</a></li>
-        <li><a>HABILIDADES</a></li>
-        <li><a>CONTATO</a></li>
+
+        { sections &&
+          sections.map(section => (
+
+            <li key={`navigation_scroll_key_${section}`}>
+              <a
+                onClick={() => onClickAnchor(section)}
+              >
+                { section.toUpperCase() }
+              </a>
+            </li>
+          ))
+        }
+
       </ul>
     </NavigationScrollContainer>
   );

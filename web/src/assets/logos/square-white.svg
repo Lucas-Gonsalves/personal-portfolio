@@ -2,18 +2,18 @@
 <svg width="238" height="235" viewBox="22 22 192 190" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_103_3)">
 <g filter="url(#filter1_i_103_3)">
-<path d="M17.0001 17L17.0001 216.268L37.2967 195.971L37.2967 37.1545L17.0001 17Z" fill="#8750F7" stroke="#8750F7"/>
-<path d="M17.5904 218.046H217L196.704 197.749L37.7388 197.897L17.5904 218.046Z" fill="#8750F7" stroke="#8750F7"/>
-<path d="M171.964 173.305L65.296 172.119L45.4439 190.786H189.343L171.964 173.305Z" fill="#8750F7" stroke="#8750F7"/>
-<path d="M63.5203 171.188L63.5203 63.3771L44.8534 44.7101L44.8534 188.712L63.5203 171.188Z" fill="#8750F7" stroke="#8750F7"/>
+<path d="M17.0001 17L17.0001 216.268L37.2967 195.971L37.2967 37.1545L17.0001 17Z" fill="#FEFEFE" stroke="#FEFEFE"/>
+<path d="M17.5904 218.046H217L196.704 197.749L37.7388 197.897L17.5904 218.046Z" fill="#FEFEFE" stroke="#FEFEFE"/>
+<path d="M171.964 173.305L65.296 172.119L45.4439 190.786H189.343L171.964 173.305Z" fill="#FEFEFE" stroke="#FEFEFE"/>
+<path d="M63.5203 171.188L63.5203 63.3771L44.8534 44.7101L44.8534 188.712L63.5203 171.188Z" fill="#FEFEFE" stroke="#FEFEFE"/>
 </g>
 </g>
 <g filter="url(#filter2_d_103_3)">
 <g filter="url(#filter3_i_103_3)">
-<path d="M220.57 218.343V18.4333L200.057 38.7952V198.123L220.57 218.343Z" fill="#8750F7" stroke="#8750F7"/>
-<path d="M219.838 17.0001L20.5697 17.0001L40.8519 37.0627L199.704 36.9162L219.838 17.0001Z" fill="#8750F7" stroke="#8750F7"/>
-<path d="M65.7508 61.6746L172.19 62.8574L192 44.2279L48.4093 44.2279L65.7508 61.6746Z" fill="#8750F7" stroke="#8750F7"/>
-<path d="M174.416 63.9039V171.729L192.731 190.398V46.3777L174.416 63.9039Z" fill="#8750F7" stroke="#8750F7"/>
+<path d="M220.57 218.343V18.4333L200.057 38.7952V198.123L220.57 218.343Z" fill="#FEFEFE" stroke="#FEFEFE"/>
+<path d="M219.838 17.0001L20.5697 17.0001L40.8519 37.0627L199.704 36.9162L219.838 17.0001Z" fill="#FEFEFE" stroke="#FEFEFE"/>
+<path d="M65.7508 61.6746L172.19 62.8574L192 44.2279L48.4093 44.2279L65.7508 61.6746Z" fill="#FEFEFE" stroke="#FEFEFE"/>
+<path d="M174.416 63.9039V171.729L192.731 190.398V46.3777L174.416 63.9039Z" fill="#FEFEFE" stroke="#FEFEFE"/>
 </g>
 </g>
 <defs>
@@ -23,7 +23,7 @@
 <feOffset dx="-2" dy="2"/>
 <feGaussianBlur stdDeviation="7"/>
 <feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.529412 0 0 0 0 0.313726 0 0 0 0 0.968627 0 0 0 0.25 0"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.996078 0 0 0 0 0.996078 0 0 0 0 0.996078 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_103_3"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_103_3" result="shape"/>
 </filter>
@@ -43,7 +43,7 @@
 <feOffset dx="2" dy="-2"/>
 <feGaussianBlur stdDeviation="7"/>
 <feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.529412 0 0 0 0 0.313726 0 0 0 0 0.968627 0 0 0 0.25 0"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.996078 0 0 0 0 0.996078 0 0 0 0 0.996078 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_103_3"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_103_3" result="shape"/>
 </filter>

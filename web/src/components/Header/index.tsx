@@ -4,7 +4,6 @@ import {
   ContactMailLink, 
   MenuScroll, 
   NavigationButton, 
-  Logo, 
 
 } from "./styles";
 
@@ -12,12 +11,9 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { HiXMark } from "react-icons/hi2";
 import { NavigationBar } from "../NavigationBar";
 
-import logoL from "@/assets/logos/L-white.svg"
-import logoLBackWards from "@/assets/logos/L-white-backwards.svg"
-import logoSquarePurple from "@/assets/logos/square-purple.svg"
-
 import { ButtonSend } from "../ButtonSend";
 import { useEffect, useState } from "react";
+import { ButtonLogoLayout } from "../ButtonLogoLayout";
 
 
 interface HeaderProps {
@@ -61,23 +57,31 @@ export function Header({
     return;
   };
 
+  const sections = [
+    "Sobre",
+    "Serviços", 
+    "Projetos", 
+    "Habilidades", 
+    "Contato",
+  ];
+
+
   return(
     <HeaderContainer
       data-is-scroll-initial={isScrollInitial}
     >
     
       <ContactMailLink>
-        <Logo>
-          <img id="logo" src={logoL} />
-          <img id="logo-backwards" src={logoLBackWards} />
-          <img id="logo-square" src={logoSquarePurple} />
-        </Logo>
+        <ButtonLogoLayout/>
+
         <a>lucasluz1710@gmail.com</a>
       </ContactMailLink>
 
 
       <NavigationButton>
-        <NavigationBar/>
+        <NavigationBar
+          sections={sections}
+        />
 
         <ButtonSend
           title="Contate-me"

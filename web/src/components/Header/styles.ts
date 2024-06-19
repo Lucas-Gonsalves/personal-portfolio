@@ -72,85 +72,7 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
 `;
 
 
-export const Logo = styled.div`
 
-  position: relative;
-  z-index: 0;
-
-  -webkit-user-drag: none;
-  user-select: none;
-
-  cursor: pointer;
-
-  #logo-backwards {
-    opacity: 0;
-    
-    position: absolute;
-    z-index: -1;
-
-    margin-left: -100%;
-  }
-
-  #logo-square {
-    opacity: 0;
-    
-    position: absolute;
-    z-index: -2;
-
-    margin-left: -100%;
-  }
-
-  &:hover {
-    #logo-backwards {
-      opacity: 1;
-    }
-
-    img {
-      transform: scale(0.86);
-      box-shadow: 0 0 12px rgba(254, 254, 254, 0.8);
-    }
-  }
-
-  &:active {
-    #logo-backwards, #logo {
-      opacity: 0;
-    }
-    
-    #logo-square {
-      opacity: 1;
-    }
-    
-    img {
-      box-shadow: 0 0 12px rgba(135, 80, 247);
-
-      transition: transform 2s ease-out, box-shadow .6s ease, opacity .6s ease; 
-      transform: rotate(135deg) scale(0.86);
-    }
-  }
-
-  img {
-    width: 5rem;
-    height: 5rem;
-    
-    color: ${props => props.theme.colors["white-100"]};
-    transition: transform 2s ease-out, box-shadow .6s ease, opacity .6s ease; 
-
-    box-shadow: -3px 3px 6px rgba(254, 254, 254, 0.8);
-    
-    &:hover {
-      transition: transform 2s ease-out, box-shadow .6s ease, opacity .6s ease; 
-    }
-  }
-`;
-
-export const LogoHover = styled.img`
-  width: 5rem;
-  height: 5rem;
-
-  color: ${props => props.theme.colors["white-100"]};
-
-  cursor: pointer;
-`;
 
 export const ContactMailLink = styled.div`
   width: max-content;
@@ -198,6 +120,12 @@ export const NavigationButton = styled.div`
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
     margin: 0 0 0 auto;
   }
+
+  @media (max-width: ${props => props.theme["device-breackpoints"].xg}) {
+    nav {
+      display: none;
+    }
+  }
 `;
 
 
@@ -240,5 +168,4 @@ export const MenuScroll = styled.button`
   @media (min-width: ${props => props.theme["device-breackpoints"].xg}) {
     display: none;
   }
-  
 `;

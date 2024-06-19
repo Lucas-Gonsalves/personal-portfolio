@@ -15,10 +15,17 @@ import figmaCardImage from "@/assets/skills/figma-card-image.svg";
 import restFullCardImage from "@/assets/skills/restFull-card-image.svg"; 
 import sqlCardImage from "@/assets/skills/sql-card-image.svg"; 
 
+interface SkillsProps {
+  id?: string;
+}
 
-export function Skills() {
+export function Skills({
+  id = "",
+}: SkillsProps) {
   return(
-    <SkillsBackground>
+    <SkillsBackground
+      id={id}
+    >
 
 
       <TitleContent>

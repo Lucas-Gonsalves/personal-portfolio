@@ -7,6 +7,7 @@ export const HomeContainer = styled.div`
   
   min-width: 32rem;
 
+  scroll-behavior: smooth;
 
   position: relative;
   z-index: 0;

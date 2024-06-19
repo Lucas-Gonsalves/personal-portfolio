@@ -130,12 +130,45 @@ export const Form = styled.form`
 
   gap: 1rem;
 
+  > span {
+    max-width: max-content;
+    min-height: 1.8rem;
+
+    align-self: flex-end;
+    text-align: end;
+
+    color: ${props => props.theme.colors["red-100"]};
+
+    font-size: ${props => props.theme["font-size"].xss};
+  }
+
+  > button {
+    margin-top: 1.5rem;
+  }
+
   @media (min-width: ${props => props.theme["device-breackpoints"].xsm}) {
     gap: 1.5rem;
+
+    > span {
+      font-size: ${props => props.theme["font-size"].xxs};
+    }
   }
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].s}) {
+    gap: 1.5rem;
+
+    > span {
+      font-size: ${props => props.theme["font-size"].mxs};
+    }
+  }
+
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
     gap: 2rem;
+
+    > span {
+      font-size: ${props => props.theme["font-size"].m};
+    }
   }
 `;
 

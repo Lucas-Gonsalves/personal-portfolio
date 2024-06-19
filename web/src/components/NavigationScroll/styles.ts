@@ -10,7 +10,7 @@ export const NavigationScrollContainer = styled.nav<NavigationScrollContainerPro
   width: 100%;
   min-height: 100%;
 
-  top: 9.5rem; 
+  top: 9.8rem; 
 
   position: fixed;
   z-index: 1;
@@ -29,7 +29,7 @@ export const NavigationScrollContainer = styled.nav<NavigationScrollContainerPro
 
     align-items: center;
     
-    margin-top: 3.5rem;
+    padding-top: 3.5rem;
     gap: 3.5rem;
     
     text-align: center;
@@ -49,9 +49,8 @@ export const NavigationScrollContainer = styled.nav<NavigationScrollContainerPro
   }
 
 
-  @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
-    top: ${props => props["data-is-scroll-initial"] ? "13.5rem" : "9.5rem"}; 
-
+  @media (min-width: ${props => props.theme["device-breackpoints"].xsm}) {
+    top: ${props => props["data-is-scroll-initial"] ? "13.4rem" : "9.8rem"};
   }
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xg}) {

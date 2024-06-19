@@ -16,6 +16,7 @@ interface SelectProps extends SelectHTMLAttributes<HTMLInputElement> {
   options?: string[];
   optionsGroup?: string;
   categoryName?: string;
+  ariaInvalid?: boolean;
 };
 
 
@@ -25,23 +26,24 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>((
     options = [ ],
     optionsGroup = "uninformed",
     categoryName = "uninformed",
+    ariaInvalid = false,
     ...props
   },
 
   ref,
 
 ) => {
-
   const [ currentOption, setCurrentOption ] = useState<string>(categoryName);
+
   const [ isOptionsOpen, setIsOptionsOpen ] = useState<boolean>(false);
 
   const optionsRef = useRef<HTMLDivElement>(null);
   const selectedRef = useRef<HTMLButtonElement>(null);
 
-  
+
   function clickSelected(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
-    
+
     if (!isOptionsOpen && optionsRef.current) {
 
       const tabEvent = new KeyboardEvent('keydown', {
@@ -174,6 +176,9 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>((
   }, [isOptionsOpen]);
 
 
+
+  const inputValueTest = currentOption === categoryName ? "Outros" : currentOption;
+
   return (
     <SelectContainer>
 
@@ -182,15 +187,17 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>((
       onClick={clickSelected}
       data-is-select-open={isOptionsOpen}
       onKeyDown={ChangeOptionByKeyboard}
+      aria-invalid={ariaInvalid}
       ref={selectedRef}
     >
-
-         <input
-          value={currentOption}
-          tabIndex={-1}
-          readOnly
-          ref={ref}
-        />
+      <span>{ currentOption }</span>
+      <input
+        value={inputValueTest}
+        tabIndex={-1}
+        readOnly
+        ref={ref}
+        {...props}
+      />
 
       <SlArrowDown/>
     </Selected>
@@ -208,8 +215,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>((
               key={`select_${optionsGroup}_option_${option}`}
             >
 
-                <input     
-                  id="input-radio-layout"
+                <input
                   type="radio"
                   value={option}
                   checked={option === currentOption}
