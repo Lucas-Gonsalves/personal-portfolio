@@ -1,20 +1,20 @@
-import { AnchorHTMLAttributes, useEffect, useState } from "react";
-import { NavigationScrollContainer } from "./styles";
+import { useEffect, useState } from "react";
+import { NavigationMenuContainer } from "./styles";
 
-export interface NavigationScrollProps {
+export interface NavigationMenuProps {
   menuIsOpen: boolean;
   sections?: string[];
   onChangeMenu: () => void;
 };
 
 
-export function NavigationScroll({ 
+export function NavigationMenu({ 
   
   sections = [],
   menuIsOpen,
   onChangeMenu,
 
-}: NavigationScrollProps) {
+}: NavigationMenuProps) {
 
 
   const [ scrollProgress, setScrollProgress ] = useState(0);
@@ -67,7 +67,7 @@ export function NavigationScroll({
   const isScrollInitial = scrollProgress <= 0;
 
   return (
-    <NavigationScrollContainer
+    <NavigationMenuContainer
       data-menu-is-open={menuIsOpen}
       data-is-scroll-initial={isScrollInitial}
     >
@@ -87,6 +87,6 @@ export function NavigationScroll({
         }
 
       </ul>
-    </NavigationScrollContainer>
+    </NavigationMenuContainer>
   );
 };

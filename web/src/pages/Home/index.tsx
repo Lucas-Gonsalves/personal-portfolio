@@ -5,7 +5,7 @@ import { QualityServices } from "./sections/QualityServices";
 import { RecentWorks } from "./sections/RecentWorks";
 
 import { Header } from "@/components/Header";
-import { NavigationScroll } from "@/components/NavigationScroll";
+import { NavigationMenu } from "@/components/NavigationMenu";
 import { ScrollProgress } from "@/components/ScrollProgress";
 
 import { useState } from "react";
@@ -16,8 +16,6 @@ import { Footer } from "@/components/Footer";
 
 export function Home() {
   const [ menuIsOpen, setMenuIsOpen ] = useState<boolean>(false);
-
-  console.log("hello")
 
   function onChangeMenu() {
     menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true);
@@ -40,7 +38,7 @@ export function Home() {
         onChangeMenu={onChangeMenu}
       />
 
-      <NavigationScroll
+      <NavigationMenu
         menuIsOpen={menuIsOpen}
         onChangeMenu={onChangeMenu}
         sections={sections}

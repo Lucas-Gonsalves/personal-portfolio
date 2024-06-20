@@ -66,7 +66,7 @@ export function Presentation({
               <ButtonNetWork
                 icon={FaLinkedinIn}
                 target="_blank"
-                href="https://www.linkedin.com/in/lucas-gon%C3%A7alves-da-luz-498425276/"
+                href="https://www.linkedin.com/in/lucas-gon%C3%A7alves-da-luz-498425276"
               />
 
               <ButtonNetWork

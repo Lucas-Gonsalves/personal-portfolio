@@ -1,8 +1,8 @@
-import { IconContainer, TopicIconContainer } from "./styled";
+import { IconContainer, AnchorTopicContainer } from "./styled";
 import { IconType } from "react-icons";
 
 
-interface TopicIconProps {
+interface AnchorTopicProps {
   icon: IconType;
   href?: string;
   title?: string;
@@ -13,7 +13,7 @@ interface TopicIconProps {
 
 
 
-export function TopicIcon({
+export function AnchorTopic({
 
   icon: Icon,
   href,
@@ -23,10 +23,10 @@ export function TopicIcon({
   tabIndexHidden,
 
 
-  }: TopicIconProps) {
+  }: AnchorTopicProps) {
 
   return (
-    <TopicIconContainer>
+    <AnchorTopicContainer>
       
       <IconContainer
         {...(
@@ -52,6 +52,6 @@ export function TopicIcon({
         )
       }
     
-    </TopicIconContainer>
+    </AnchorTopicContainer>
     );
 };

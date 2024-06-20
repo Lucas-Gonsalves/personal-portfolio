@@ -29,11 +29,11 @@ export function Skills({
 
 
       <TitleContent>
-        <h2>Minhas habilidades</h2>
+        <h2>Habilidades</h2>
 
         <p>
-          Colocamos suas ideias e, portanto, seus desejos na 
-          forma de um projeto web único que inspira você e seus clientes.
+          Explore as tecnologias modernas de desenvolvimento web 
+          que estudei com dedicação e que utilizo na maioria dos projetos.
         </p>
       </TitleContent>
 

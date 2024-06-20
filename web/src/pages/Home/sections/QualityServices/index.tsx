@@ -6,12 +6,34 @@ import {
 } from "./styles";
 
 
-import { ServiceBox } from "@/components/ServiceBox";
+import { ServiceSelector } from "@/components/ServiceSelector";
 
 
 interface QualityServicesProps {
   id?: string;
 }
+
+const selectorTopics = [
+  {
+    title: "Criação de Site",
+    description: "Criamos interfaces modernas e responsivas, utilizando React para um design intuitivo e alta performance.",
+  },
+
+  {
+    title: "Manutenção",
+    description: "Oferecemos suporte contínuo e atualizações para garantir o funcionamento sem problemas dos projetos.",
+  },
+
+  {
+    title: "Integração de API",
+    description: "Integramos seu site com APIs para proporcionar funcionalidades avançadas e comunicação eficiente com outros serviços.",
+  },
+
+  {
+    title: "Design Responsivo",
+    description: "Desenvolvemos websites adaptáveis para todos os dispositivos, assegurando acessibilidade e estética em todas as telas.",
+  },
+];
 
 export function QualityServices({
   id = "",
@@ -23,17 +45,18 @@ export function QualityServices({
     >
 
       <TitleContent>
-        <h2>Serviços de qualidade</h2>
+        <h2>Serviços de Qualidade</h2>
 
         <p>
-          Colocamos suas ideias e, portanto, seus desejos na 
-          forma de um projeto web único que inspira você e seus clientes.
+          Transformamos suas ideias em projetos web únicos que inspiram você 
+          e seus clientes, oferecendo serviços de qualidade que elevam sua presença online.
         </p>
       </TitleContent>
       
       
-      <ServiceBox
+      <ServiceSelector
         id="service-box"
+        selectorTopics={selectorTopics}
       />
 
     </QualityServicesContainer>

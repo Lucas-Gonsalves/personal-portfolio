@@ -1,6 +1,6 @@
 import { 
 
-  CardWorkSelectorContainer, 
+  WorkSelectorContainer, 
   CardsContainer,
   ButtonHoverBackground,
   ButtonNavigation,
@@ -20,18 +20,18 @@ interface CalculateWidthAndPositionOfHoverBackgroundProps {
 };
 
 
-interface CardWorkSelectorProps {
+interface WorkSelectorProps {
   workCardSections: string[];
   workCardList: CardWorkProps[];
 };
 
 
-export function CardWorkSelector({
+export function WorkSelector({
   
   workCardSections = [],
   workCardList = [],
 
-}: CardWorkSelectorProps) {
+}: WorkSelectorProps) {
 
   const [ conjuntAnimation, setConjuntAnimation ] = useState<boolean>(false);
   const [ buttonDisabled, setButtonDisabled ] = useState<boolean>(false);
@@ -104,7 +104,7 @@ export function CardWorkSelector({
 
     const {
 
-      width: buttonWidth, 
+      width: buttonWidth,
       left: buttonLeftPosition, 
 
     } = buttonElement.getBoundingClientRect();
@@ -138,7 +138,7 @@ export function CardWorkSelector({
 
   return(
       
-    <CardWorkSelectorContainer>
+    <WorkSelectorContainer>
 
       <NavigationContainer
         ref={navRef}
@@ -192,6 +192,6 @@ export function CardWorkSelector({
         }
       </CardsContainer>
 
-    </CardWorkSelectorContainer>
+    </WorkSelectorContainer>
   );
 };

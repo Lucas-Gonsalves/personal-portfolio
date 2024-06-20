@@ -13,7 +13,7 @@ import { NavigationBar } from "../NavigationBar";
 
 import { ButtonSend } from "../ButtonSend";
 import { useEffect, useState } from "react";
-import { ButtonLogoLayout } from "../ButtonLogoLayout";
+import { LogoLayout } from "../LogoLayout";
 
 
 interface HeaderProps {
@@ -72,7 +72,7 @@ export function Header({
     >
     
       <ContactMailLink>
-        <ButtonLogoLayout/>
+        <LogoLayout/>
 
         <a>lucasluz1710@gmail.com</a>
       </ContactMailLink>

@@ -69,9 +69,8 @@ export const CardWorkContainer = styled.div<CardWorkContainerProps>`
       -webkit-user-drag: ${props => (props["data-is-conjunt-animation"] ? "initial" : "none")};
       pointer-events: ${props => (props["data-is-conjunt-animation"] ? "initial" : "none")};
 
-
       cursor: ${props => (props["data-is-conjunt-animation"] ? "pointer" : "default")};
-      user-select: ${props => (props["data-is-conjunt-animation"] ? "initial" : "none")};
+      z-index: 1;
 
        div svg {
         transition: .4s ease;
@@ -98,7 +97,11 @@ export const CardWorkContainer = styled.div<CardWorkContainerProps>`
   }
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xgg}) {
-    max-width: 52.75rem;
+    max-width: 62.2rem;
+  }
+
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].xgg}) {
 
     padding: 3.6rem 3.6rem 0;
   }
@@ -116,7 +119,7 @@ export const DescriptionHoverContainer = styled.a`
   outline: none;
 
   position: absolute;
-  z-index: 0;
+  z-index: -1;
 
   cursor: default;
   pointer-events: none;

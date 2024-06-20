@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 
-interface NavigationScrollContainerProps {
+interface NavigationMenuContainerProps {
   "data-menu-is-open": boolean;
   "data-is-scroll-initial"?: boolean;
 };
 
-export const NavigationScrollContainer = styled.nav<NavigationScrollContainerProps>`
+export const NavigationMenuContainer = styled.nav<NavigationMenuContainerProps>`
   width: 100%;
   min-height: 100%;
 

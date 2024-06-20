@@ -8,7 +8,7 @@ interface ButtonHoverBackgroundProps {
 
 
 
-export const CardWorkSelectorContainer = styled.div`
+export const WorkSelectorContainer = styled.div`
 
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@ export const CardWorkSelectorContainer = styled.div`
 
 
 export const CardsContainer = styled.ul`
-  max-width: 124.8rem;
+  max-width: 129.6rem;
 
   display: flex;
   flex-direction: column;
@@ -39,6 +39,10 @@ export const CardsContainer = styled.ul`
 
   @media (min-width: ${props => props.theme["device-breackpoints"].exm}) {
     gap: 4rem;
+  }
+
+  @media (min-width: ${props => props.theme["device-breackpoints"].xg}) {
+    gap: 6rem;
   }
 `;
 
@@ -61,11 +65,11 @@ export const NavigationContainer = styled.nav`
   }
     
   @media (min-width: ${props => props.theme["device-breackpoints"].xsm}) {
-    padding: 1.6rem;
+    padding:  1.6rem;
   }
 
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
-    padding: 2rem;
+    padding: 1.6rem 2rem;
   }
 
 `;

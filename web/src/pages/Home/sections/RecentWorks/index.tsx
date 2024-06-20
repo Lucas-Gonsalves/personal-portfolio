@@ -13,7 +13,7 @@ import {
  import todoListCardImage from "@/assets/work/todo-list-card-image.png";
  
  import { CardWorkProps } from "@/components/CardWork";
- import { CardWorkSelector } from "@/components/CardWorkSelector";
+ import { WorkSelector } from "@/components/WorkSelector";
  
 
 const { reactJS, reactTS, reducers } = {
@@ -74,16 +74,16 @@ export function RecentWorks({
       <OverlayBackground/>
 
       <TitleContent>
-        <h2>Trabalhos Recentes</h2>
+        <h2>Projetos Recentes</h2>
 
         <p>
-          Colocamos suas ideias e, portanto, seus desejos na 
-          forma de um projeto web único que inspira você e seus clientes.
+          Veja meus projetos mais recentes, nos quais uni inovação, 
+          design moderno e funcionalidades avançadas para criar experiências web excepcionais.
         </p>
       </TitleContent>
       
 
-      <CardWorkSelector
+      <WorkSelector
         workCardSections={cardWorkSections}
         workCardList={cardWorkList}
       />

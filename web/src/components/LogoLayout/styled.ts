@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const ButtonLogoLayoutContainer = styled.div`
+export const LogoLayoutContainer = styled.div`
 
   width: 5.8rem;
   height: 5.8rem;

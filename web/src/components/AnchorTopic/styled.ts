@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const TopicIconContainer = styled.div`
+export const AnchorTopicContainer = styled.div`
   max-width: max-content;
   min-height: max-content;
 

@@ -17,7 +17,7 @@ import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { Input } from "@/components/Input";
 import { Select } from "@/components/Select";
 import { Textarea } from "@/components/Textarea";
-import { TopicIcon } from "@/components/TopicIcon";
+import { AnchorTopic } from "@/components/AnchorTopic";
 import { ButtonSend } from "@/components/ButtonSend";
 
 import { useForm } from "react-hook-form";
@@ -35,7 +35,7 @@ const workFormSchema = z.object({
     .min(15, "Por favor, forneça seu número de telefone.")
     .regex(/^\(\d{2}\) \d{5}-\d{4}$/, "Por favor, forneça um número de telefone no formato (99) 99999-9999."),
 
-  service: z.enum(["Branding Design", "Web Design", "UI/UX Design", "App Design", "Outros"], {
+  service: z.enum(["Criação de Site", "Manutenção", "Integração de API", "Design Responsivo", "Outros"], {
     errorMap: () => ({message: "Por favor selecione um serviço."})
   }),
 
@@ -93,8 +93,8 @@ export function WorkForm({
           <h2>Vamos Trabalhar?</h2>
 
           <p>
-            Eu desenho e codifico coisas lindamente simples e 
-            amo o que faço. Simples assim!
+            Codifico soluções elegantes e funcionais, 
+            com paixão pelo que faço. Vamos criar algo extraordinário!
           </p>
         </TitleContent>
 
@@ -144,7 +144,7 @@ export function WorkForm({
           <Select
             optionsGroup="Services"
             categoryName="Serviços"
-            options={[ "Branding Design", "Web Design", "UI/UX Design" ,"App Design" ]}
+            options={[ "Criação de Site", "Manutenção", "Integração de API", "Design Responsivo" ]}
             ariaInvalid={!!errors.service?.message}
 
             {...register("service")}
@@ -168,28 +168,23 @@ export function WorkForm({
       </FormContainer>
 
         <ContactInformation>
-          <TopicIcon
+          <AnchorTopic
             targetBlank
             tabIndexHidden
             icon={MdOutlinePhoneInTalk}
             title="Telefone"
             description="+55 (47) 99630-6744"
-            href="https://wa.me/5547996306744/?text=Tudo%20bem,%20Lucas?%0A%0AAnalisei%20seu%20portf%C3%B3lio%20e%20fiquei%20bastante%20impressionado%20com%20a%20qualidade%20do%20seu%20trabalho.%20Gostaria%20de%20discutir%20a%20possibilidade%20de%20colaborarmos%20em%20um%20projeto.%20%0A%0AAguardo%20seu%20retorno.%0A%0AAtenciosamente,%0A[Seu%20Nome]"/>
+            href="https://wa.me/5547996306744/"/>
 
-          <TopicIcon
+          <AnchorTopic
             tabIndexHidden
             icon={IoIosMail}
             title="E-mail"
             description="lucasluz1710@gmail.com"
-            href="
-              mailto:lucasluz1710@gmail.com?subject=Interesse%20em%20Projeto&body=Tudo%20bem,%20Lucas?%0A%0A
-              Analisei%20seu%20portf%C3%B3lio%20e%20fiquei%20bastante%20impressionado%20com%20a%20qualidade
-              %20do%20seu%20trabalho.%20Gostaria%20de%20discutir%20a%20possibilidade%20de%20colaborarmos%20
-              em%20um%20projeto.%20%0A%0AAguardo%20seu%20retorno.%0A%0AAtenciosamente,%0A[Seu%20Nome]
-            "
+            href="mailto:lucasluz1710@gmail.com?subject=Interesse%20em%20Projeto"
           />
 
-          <TopicIcon
+          <AnchorTopic
             targetBlank
             tabIndexHidden
             icon={IoIosPin}
