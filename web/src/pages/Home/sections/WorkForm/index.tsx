@@ -13,9 +13,9 @@ import { IoIosPin } from "react-icons/io";
 import { IoIosMail } from "react-icons/io";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 
+import emailjs from '@emailjs/browser';
 
 import { Input } from "@/components/Input";
-import { Select } from "@/components/Select";
 import { Textarea } from "@/components/Textarea";
 import { AnchorTopic } from "@/components/AnchorTopic";
 import { ButtonSend } from "@/components/ButtonSend";
@@ -30,14 +30,11 @@ const workFormSchema = z.object({
   name: z.string().min(1, "Por favor, forneça seu nome.").regex(/^[a-zA-ZÀ-ÿ\s]+$/, "Por favor, forneça uma nome válido."),
   lastName: z.string().min(1, "Por favor, forneça seu ultimo nome."),
   email: z.string().email("Por favor forneça um e-mail válido."),
+  service: z.string().min(1, "Por favor, forneça o serviço desejado."),
 
   tell: z.string()
     .min(15, "Por favor, forneça seu número de telefone.")
     .regex(/^\(\d{2}\) \d{5}-\d{4}$/, "Por favor, forneça um número de telefone no formato (99) 99999-9999."),
-
-  service: z.enum(["Criação de Site", "Manutenção", "Integração de API", "Design Responsivo", "Outros"], {
-    errorMap: () => ({message: "Por favor selecione um serviço."})
-  }),
 
   message: z.string().min(1, "Por favor, forneça uma mensagem para o corpo do e-mail.")
 })
@@ -66,19 +63,34 @@ export function WorkForm({
     shouldFocusError: false,
     reValidateMode: "onChange",
     resolver: zodResolver(workFormSchema),
-
-    defaultValues: {
-      service: "Outros",
-    }
   });
 
 
   function onSubmitForm(data: WorkFormSchemaProps) {
 
-    console.log(data);
+    emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        name: data.name,
+        lastName: data.lastName,
+        email: data.email,
+        tell: data.tell,
+        service: data.service,
+        message: data.message,
+        time: new Date().toLocaleString(),
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+    .then(() => {
+      alert("Mensagem enviada com sucesso!");
+    })
+    .catch((error) => {
+      console.error("Erro ao enviar:", error);
+      alert("Ocorreu um erro ao enviar sua mensagem.");
+    });
     return;
   };
-
 
   const errorsMessage = Object.values(errors)[0]?.message;
 
@@ -141,11 +153,10 @@ export function WorkForm({
           </InputSet>
 
 
-          <Select
-            optionsGroup="Services"
-            categoryName="Serviços"
-            options={[ "Criação de Site", "Manutenção", "Integração de API", "Design Responsivo" ]}
-            ariaInvalid={!!errors.service?.message}
+          <Input
+            placeholder="Serviço"
+            autoComplete="organization-title"
+            aria-invalid={!!errors.service?.message}
 
             {...register("service")}
           />
@@ -180,8 +191,8 @@ export function WorkForm({
             tabIndexHidden
             icon={IoIosMail}
             title="E-mail"
-            description="lucasluz1710@gmail.com"
-            href="mailto:lucasluz1710@gmail.com?subject=Interesse%20em%20Projeto"
+            description="lucasluzdevcode@gmail.com"
+            href="mailto:lucasluzdevcode@gmail.com?subject=Interesse%20em%20Projeto"
           />
 
           <AnchorTopic
@@ -189,8 +200,8 @@ export function WorkForm({
             tabIndexHidden
             icon={IoIosPin}
             title="Endereço"
-            description="Rolf passold, Corticeira, Guaramirim, SC"
-            href="https://maps.app.goo.gl/ex4QYTjVo3m4YiKUA"
+            description="Guaramirim, SC."
+            href="https://maps.app.goo.gl/54UWPwNqm2A3QYa38"
           />
         </ContactInformation>
 

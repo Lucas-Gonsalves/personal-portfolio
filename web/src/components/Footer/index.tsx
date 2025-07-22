@@ -26,7 +26,7 @@ export function Footer() {
         sections={sections}
         readScrollProgress={false}
       />
-      <p>© { currentDate } All rights reserved by <a>Lucas Gonçalves</a></p>
+      <p>© { currentDate } Todos os direitos reservados por <a>Lucas Gonçalves</a></p>
 
     </FooterContainer>
   );

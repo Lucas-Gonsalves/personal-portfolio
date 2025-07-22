@@ -74,7 +74,7 @@ export function Header({
       <ContactMailLink>
         <LogoLayout/>
 
-        <a>lucasluz1710@gmail.com</a>
+        <a>lucasluzdevcode@gmail.com</a>
       </ContactMailLink>
 
 
@@ -83,9 +83,11 @@ export function Header({
           sections={sections}
         />
 
-        <ButtonSend
-          title="Contate-me"
-        />
+        <a href="https://wa.me/5547996306744" target="_blank">
+          <ButtonSend
+            title="Contate-me"
+          />
+        </a>
       </NavigationButton>
 
 

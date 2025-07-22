@@ -223,7 +223,6 @@ export const ContactInformation = styled.div`
   }
 
   @media (min-width: ${props => props.theme["device-breackpoints"].exm}) {
-    max-width: 32.6rem;
     flex-direction: column;
   }
 `;

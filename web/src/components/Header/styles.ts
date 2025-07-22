@@ -84,7 +84,6 @@ export const ContactMailLink = styled.div`
 
   a {
     display: none;
-    cursor: pointer;
 
     color: ${props => props.theme.colors["white-200"]};
     font-size:  ${props => props.theme["font-size"].m};

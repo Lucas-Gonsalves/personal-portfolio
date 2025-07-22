@@ -43,7 +43,7 @@ export function Presentation({
 
         <div>
           <h2>Lucas Gonçalves</h2>
-          <h1>Desenvolvedor Full-Stack</h1>
+          <h1>Desenvolvedor Front-End</h1>
 
           <ImageProfileContainerMobile>
             <img src={LucasGonsalvesImage} />
@@ -56,11 +56,14 @@ export function Presentation({
             de maneira autêntica.
           </p>
 
-          <ButtonReceiveSet>  
-            <ButtonReceive
-              title="Baixar CV"
-              icon={HiOutlineDownload}
-            />
+          <ButtonReceiveSet> 
+
+            <a id="download_cv_button" href="../../../../public/cv-frontend-lucas-goncalves-da-luz.pdf" download>
+              <ButtonReceive
+                title="Baixar CV"
+                icon={HiOutlineDownload}
+              />
+            </a> 
 
             <ButtonNetworkSet>
               <ButtonNetWork

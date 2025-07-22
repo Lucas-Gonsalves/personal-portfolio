@@ -33,7 +33,6 @@ export function ButtonReceive({
       {...props}
     >
 
-
       {title} 
 
       { Icon && <Icon/> }

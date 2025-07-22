@@ -55,7 +55,6 @@ export const FooterContainer = styled.footer`
 
     a {
       outline: none;
-      cursor: pointer;
       font-weight: ${props => props.theme["font-weight"].bold};
     }
   }

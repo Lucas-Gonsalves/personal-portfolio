@@ -330,6 +330,11 @@ export const ButtonReceiveSet = styled.div`
   align-items: start;
   gap: 2rem;
 
+  #download_cv_button {
+    text-decoration: none;
+    color: inherit;
+  }
+
   @media (min-width: ${props => props.theme["device-breackpoints"].xm}) {
     flex-direction: row;
     align-items: center;
