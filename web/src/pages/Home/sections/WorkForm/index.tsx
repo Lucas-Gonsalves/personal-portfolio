@@ -24,6 +24,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod"
 
+import ReCAPTCHA from "react-google-recaptcha";
+import { useRef } from "react";
 
 const workFormSchema = z.object({
 
@@ -65,8 +67,16 @@ export function WorkForm({
     resolver: zodResolver(workFormSchema),
   });
 
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   function onSubmitForm(data: WorkFormSchemaProps) {
+
+    const token = recaptchaRef.current?.getValue();
+
+    if (!token) {
+      alert("Por favor, confirme que você não é um robô.");
+      return;
+    };
 
     emailjs.send(
       import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -79,11 +89,13 @@ export function WorkForm({
         service: data.service,
         message: data.message,
         time: new Date().toLocaleString(),
+        "g-recaptcha-response": token,
       },
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
     )
     .then(() => {
       alert("Mensagem enviada com sucesso!");
+      recaptchaRef.current?.reset();
     })
     .catch((error) => {
       console.error("Erro ao enviar:", error);
@@ -170,6 +182,11 @@ export function WorkForm({
           />
 
           <span>{errorsMessage}</span>
+
+          <ReCAPTCHA
+            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+            ref={recaptchaRef}
+          />
 
           <ButtonSend
             type="submit"

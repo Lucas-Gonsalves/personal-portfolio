@@ -52,13 +52,13 @@ export function Presentation({
 
           <p>
             Abordo desafios complexos da experiência do usuário com criatividade, 
-            desenvolvendo soluções inovadoras que transcendem o convencional e conectam bilhões de pessoas 
+            desenvolvendo soluções inovadoras que transcendem o convencional e conectam pessoas 
             de maneira autêntica.
           </p>
 
           <ButtonReceiveSet> 
 
-            <a id="download_cv_button" href="../../../../public/cv-frontend-lucas-goncalves-da-luz.pdf" download>
+            <a id="download_cv_button" href="https://drive.google.com/file/d/1Ol5IpQiRvLbUykUyZJ519bJbC2s-00OT/view?usp=sharing">
               <ButtonReceive
                 title="Baixar CV"
                 icon={HiOutlineDownload}
