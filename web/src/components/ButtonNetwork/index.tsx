@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
+import { AnchorHTMLAttributes } from "react";
 import { ButtonNetWorkContainer, ButtonNetWorkHoverBackground } from "./styles";
 import { IconType } from "react-icons";
 

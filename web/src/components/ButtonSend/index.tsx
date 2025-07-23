@@ -1,4 +1,4 @@
-import React, { AllHTMLAttributes, ButtonHTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import { ButtonSendContainer } from "./styles";
 
 
