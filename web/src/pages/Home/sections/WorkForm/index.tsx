@@ -6,6 +6,7 @@ import {
   Form,
   InputSet,
   ContactInformation,
+  RecaptchaContainer,
   
 } from "./styles";
 
@@ -174,7 +175,6 @@ export function WorkForm({
             {...register("service")}
           />
 
-
           <Textarea
             placeholder="Mensagem"
             aria-invalid={!!errors.message?.message}
@@ -182,13 +182,17 @@ export function WorkForm({
             {...register("message")}
           />
 
-          <span>{errorsMessage}</span>
+          <RecaptchaContainer>
+            <ReCAPTCHA
+              sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+              onChange={handleRecaptchaChange}
+              theme="dark"
+              ref={recaptchaRef}
+            />
+          </RecaptchaContainer>
 
-          <ReCAPTCHA
-            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-            onChange={handleRecaptchaChange}
-            ref={recaptchaRef}
-          />
+
+          <span>{errorsMessage}</span>
 
           <ButtonSend
             type="submit"

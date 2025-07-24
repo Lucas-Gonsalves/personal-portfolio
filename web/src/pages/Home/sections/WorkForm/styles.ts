@@ -226,3 +226,9 @@ export const ContactInformation = styled.div`
     flex-direction: column;
   }
 `;
+
+export const RecaptchaContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`;
