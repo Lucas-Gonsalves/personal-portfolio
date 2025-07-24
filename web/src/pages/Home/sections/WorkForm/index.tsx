@@ -38,7 +38,8 @@ const workFormSchema = z.object({
     .min(15, "Por favor, forneça seu número de telefone.")
     .regex(/^\(\d{2}\) \d{5}-\d{4}$/, "Por favor, forneça um número de telefone no formato (99) 99999-9999."),
 
-  message: z.string().min(1, "Por favor, forneça uma mensagem para o corpo do e-mail.")
+  message: z.string().min(1, "Por favor, forneça uma mensagem para o corpo do e-mail."),
+  recaptcha: z.string().min(1, "Por favor, confirme que você não é um robô.")
 })
 
 type WorkFormSchemaProps = z.infer<typeof workFormSchema>
@@ -55,7 +56,7 @@ export function WorkForm({
 
     register,
     handleSubmit,
-
+    setValue,
     formState: {
       errors
     }
@@ -69,14 +70,13 @@ export function WorkForm({
 
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
+  function handleRecaptchaChange(value: string | null) {
+    setValue("recaptcha", value || "", { shouldValidate: true });
+  };
+
   function onSubmitForm(data: WorkFormSchemaProps) {
 
     const token = recaptchaRef.current?.getValue();
-
-    if (!token) {
-      alert("Por favor, confirme que você não é um robô.");
-      return;
-    };
 
     emailjs.send(
       import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -95,6 +95,7 @@ export function WorkForm({
     )
     .then(() => {
       alert("Mensagem enviada com sucesso!");
+      setValue("recaptcha", "");
       recaptchaRef.current?.reset();
     })
     .catch((error) => {
@@ -185,6 +186,7 @@ export function WorkForm({
 
           <ReCAPTCHA
             sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+            onChange={handleRecaptchaChange}
             ref={recaptchaRef}
           />
 
