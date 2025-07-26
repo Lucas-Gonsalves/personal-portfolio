@@ -55,6 +55,7 @@ export function WorkForm({
     register,
     handleSubmit,
     setValue,
+    trigger,
     formState: {
       errors,
     }
@@ -64,17 +65,27 @@ export function WorkForm({
     shouldFocusError: false,
     reValidateMode: "onChange",
     resolver: zodResolver(workFormSchema),
+    defaultValues: {
+      recaptcha: "",
+    }
   });
 
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   function handleRecaptchaChange(value: string | null) {
     setValue("recaptcha", value || "", { shouldValidate: true });
+    trigger("recaptcha"); 
   };
 
   async function onSubmitForm(data: WorkFormSchemaProps) {
-    setIsFormSubmitting(true);
     const token = recaptchaRef.current?.getValue();
+    
+    if (!token) {
+      setValue("recaptcha", "", { shouldValidate: true });
+      return;
+    };
+
+    setIsFormSubmitting(true);
 
     try {
       await emailjs.send(
