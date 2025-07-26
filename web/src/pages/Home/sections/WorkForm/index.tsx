@@ -56,6 +56,7 @@ export function WorkForm({
     handleSubmit,
     setValue,
     trigger,
+    reset,
     formState: {
       errors,
     }
@@ -79,7 +80,7 @@ export function WorkForm({
 
   async function onSubmitForm(data: WorkFormSchemaProps) {
     const token = recaptchaRef.current?.getValue();
-    
+
     if (!token) {
       setValue("recaptcha", "", { shouldValidate: true });
       return;
@@ -114,6 +115,7 @@ export function WorkForm({
     
     } finally {
       setIsFormSubmitting(false);
+      reset();
     };
 
     return;
