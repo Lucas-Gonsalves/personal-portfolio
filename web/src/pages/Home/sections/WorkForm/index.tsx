@@ -26,7 +26,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod"
 
 import ReCAPTCHA from "react-google-recaptcha";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const workFormSchema = z.object({
 
@@ -34,11 +34,7 @@ const workFormSchema = z.object({
   lastName: z.string().min(1, "Por favor, forneça seu ultimo nome."),
   email: z.string().email("Por favor forneça um e-mail válido."),
   service: z.string().min(1, "Por favor, forneça o serviço desejado."),
-
-  tell: z.string()
-    .min(15, "Por favor, forneça seu número de telefone.")
-    .regex(/^\(\d{2}\) \d{5}-\d{4}$/, "Por favor, forneça um número de telefone no formato (99) 99999-9999."),
-
+  tell: z.string().min(10, "Por favor, forneça seu número de telefone."),
   message: z.string().min(1, "Por favor, forneça uma mensagem para o corpo do e-mail."),
   recaptcha: z.string().min(1, "Por favor, confirme que você não é um robô.")
 })
@@ -52,6 +48,7 @@ interface WorkFormProps {
 export function WorkForm({
   id = "",
 }: WorkFormProps) {
+  const [ isFormSubmiting, setIsFormSubmitting ] = useState(false);
 
   const {
 
@@ -59,7 +56,7 @@ export function WorkForm({
     handleSubmit,
     setValue,
     formState: {
-      errors
+      errors,
     }
 
   } = useForm<WorkFormSchemaProps>({
@@ -75,34 +72,39 @@ export function WorkForm({
     setValue("recaptcha", value || "", { shouldValidate: true });
   };
 
-  function onSubmitForm(data: WorkFormSchemaProps) {
-
+  async function onSubmitForm(data: WorkFormSchemaProps) {
+    setIsFormSubmitting(true);
     const token = recaptchaRef.current?.getValue();
 
-    emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      {
-        name: data.name,
-        lastName: data.lastName,
-        email: data.email,
-        tell: data.tell,
-        service: data.service,
-        message: data.message,
-        time: new Date().toLocaleString(),
-        "g-recaptcha-response": token,
-      },
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-    )
-    .then(() => {
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: data.name,
+          lastName: data.lastName,
+          email: data.email,
+          tell: data.tell,
+          service: data.service,
+          message: data.message,
+          time: new Date().toLocaleString(),
+          "g-recaptcha-response": token,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
+
       alert("Mensagem enviada com sucesso!");
       setValue("recaptcha", "");
       recaptchaRef.current?.reset();
-    })
-    .catch((error) => {
+
+    } catch (error) {
       console.error("Erro ao enviar:", error);
       alert("Ocorreu um erro ao enviar sua mensagem.");
-    });
+    
+    } finally {
+      setIsFormSubmitting(false);
+    };
+
     return;
   };
 
@@ -196,7 +198,8 @@ export function WorkForm({
 
           <ButtonSend
             type="submit"
-            title="Enviar Mensagem"
+            title={isFormSubmiting ? "Enviando..." : "Enviar Mensagem"}
+            disabled={isFormSubmiting}
           />
         </Form>
       </FormContainer>
