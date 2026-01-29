@@ -58,9 +58,9 @@ export function Presentation({
 
           <ButtonReceiveSet> 
 
-            <a id="download_cv_button" href="https://drive.google.com/file/d/1Ol5IpQiRvLbUykUyZJ519bJbC2s-00OT/view?usp=sharing">
+            <a id="download_cv_button" href="https://drive.google.com/file/d/1q_Sl-4blfRcwr1bwWhbWK6XA1FYTAhJx/view?usp=sharing">
               <ButtonReceive
-                title="Baixar CV"
+                title="Visualizar CV"
                 icon={HiOutlineDownload}
               />
             </a> 
