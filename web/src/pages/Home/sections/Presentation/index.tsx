@@ -16,7 +16,7 @@ import ImageWelcomeTextBackground from "@/assets/presentation/image-welcome-back
 import LucasGonsalvesImage from "@/assets/presentation/lucas-gonçalves-image.png";
 import MdKeyboardDoubleArrow from "@/assets/icons/keyboard-double-arrow-down.svg";
 
-import { HiOutlineDownload } from "react-icons/hi";
+import { LuEye } from "react-icons/lu";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 
@@ -58,10 +58,10 @@ export function Presentation({
 
           <ButtonReceiveSet> 
 
-            <a id="download_cv_button" href="https://drive.google.com/file/d/1q_Sl-4blfRcwr1bwWhbWK6XA1FYTAhJx/view?usp=sharing">
+            <a id="download_cv_button" target="blank" href="https://drive.google.com/file/d/1q_Sl-4blfRcwr1bwWhbWK6XA1FYTAhJx/view?usp=sharing">
               <ButtonReceive
                 title="Visualizar CV"
-                icon={HiOutlineDownload}
+                icon={LuEye}
               />
             </a> 
 
