@@ -43,7 +43,7 @@ export function Presentation({
 
         <div>
           <h2>Lucas Gonçalves</h2>
-          <h1>Desenvolvedor Front-End</h1>
+          <h1>Desenvolvedor Full-Stack</h1>
 
           <ImageProfileContainerMobile>
             <img src={LucasGonsalvesImage} />
