@@ -16,11 +16,9 @@ import ImageWelcomeTextBackground from "@/assets/presentation/image-welcome-back
 import LucasGonsalvesImage from "@/assets/presentation/lucas-gonçalves-image.png";
 import MdKeyboardDoubleArrow from "@/assets/icons/keyboard-double-arrow-down.svg";
 
-import { LuEye } from "react-icons/lu";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 
-import { ButtonReceive } from "@/components/ButtonReceive";
 import { ButtonNetWork } from "@/components/ButtonNetwork";
 
 interface PresentationProps {
