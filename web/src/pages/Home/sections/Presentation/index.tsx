@@ -57,14 +57,6 @@ export function Presentation({
           </p>
 
           <ButtonReceiveSet> 
-
-            <a id="download_cv_button" target="blank" href="https://drive.google.com/file/d/1q_Sl-4blfRcwr1bwWhbWK6XA1FYTAhJx/view?usp=sharing">
-              <ButtonReceive
-                title="Visualizar CV"
-                icon={LuEye}
-              />
-            </a> 
-
             <ButtonNetworkSet>
               <ButtonNetWork
                 icon={FaLinkedinIn}
